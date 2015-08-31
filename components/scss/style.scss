@@ -6,9 +6,9 @@
 @import "variables";
 
 $susy: (
-  columns: 12,
-  gutter-position:after
-);
+	columns: 12,
+	gutter-position:after
+	);
 
 body{
 	background-color:$lighter-grey;
@@ -27,18 +27,47 @@ header{
 		letter-spacing:.3em;
 		margin-top: $reg - $tny;
 		color:$dark;
-		@include span(3);
+
+		@include breakpoint(640px){
+			@include span(3);
+		}
+
+		@include breakpoint(0 639px){
+			@include span(12);
+			text-align:center;
+		}
 	}
 
 	nav{
-		@include span(6);
-		@include last();
 		font-family:$body;
 		color:$dark;
-		margin-top:$reg;
+
+		@include breakpoint(830px){
+			@include span(6);
+			@include last();
+			margin-top:$reg;
+		}
+
+		@include breakpoint(640px 829px){
+			@include span(9);
+			@include last();
+			margin-top:$reg;
+		}
+
+		@include breakpoint(0px 639px){
+			@include span(12);
+			margin-top:$sm;
+			margin-bottom:$sm;
+		}
 
 		ul{
 			float:right;
+
+			@include breakpoint(0 640px){
+				display:block;
+				width:100%;
+				text-align:center;
+			}
 		}
 
 		li{
