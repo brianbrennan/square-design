@@ -164,7 +164,6 @@ header {
   .pieces .piece .likes {
     float: left;
     display: inline-block;
-    z-index: 10;
     position: absolute;
     left: 8px;
     font-style: italic; }
