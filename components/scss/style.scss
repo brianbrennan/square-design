@@ -150,6 +150,71 @@ header{
 			margin-top:-($sm + $mic);
 		}
 	}
+}
+
+.submit-overlay{
+	background-color:$overlay;
+	width:100%;
+	height:100vh;
+	position:fixed;
+	top:0;
+	left:0;
+	opacity:0;
+	visibility:hidden;
+
+	.submit-panel{
+		width:300px;
+		background:$white;
+		margin: $xxl auto;
+		padding:$sm;
+		text-align:center;
+
+		*:focus{
+			outline:none;
+		}
+
+		*::selection{
+			background-color: $green;
+			color:$white;
+		}
+
+		input[type="email"]{
+			width: 280px;
+			padding:$tny;
+			margin-bottom:$sm;
+			border: 1px solid $light-grey;
+
+			&:focus{
+				border-color:$green;
+				color:$green;
+			}
+		}
+
+		input[type="text"]{
+			width:120px;
+			padding:$tny;
+			margin-bottom:$sm;
+			margin-right:$sm;
+			border: 1px solid $light-grey;
+
+			&:nth-child(2){
+				margin-right:0;
+			}
+
+			&:focus{
+				border-color:$green;
+				color:$green;
+			}
+		}
+
+		input[type="submit"]{
+			background-color:$green;
+			border:none;
+			padding:$tny $sm;
+			margin-top:$sm;
+			color:$white;
+		}
 
 
+	}
 }

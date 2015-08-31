@@ -162,3 +162,49 @@ header {
     float: right;
     display: inline-block;
     margin-top: -18px; }
+
+.submit-overlay {
+  background-color: rgba(129, 141, 151, 0.5);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden; }
+  .submit-overlay .submit-panel {
+    width: 300px;
+    background: #FFF;
+    margin: 120px auto;
+    padding: 15px;
+    text-align: center; }
+    .submit-overlay .submit-panel *:focus {
+      outline: none; }
+    .submit-overlay .submit-panel *::selection {
+      background-color: #4AC6B7;
+      color: #FFF; }
+    .submit-overlay .submit-panel input[type="email"] {
+      width: 280px;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc; }
+      .submit-overlay .submit-panel input[type="email"]:focus {
+        border-color: #4AC6B7;
+        color: #4AC6B7; }
+    .submit-overlay .submit-panel input[type="text"] {
+      width: 120px;
+      padding: 8px;
+      margin-bottom: 15px;
+      margin-right: 15px;
+      border: 1px solid #ccc; }
+      .submit-overlay .submit-panel input[type="text"]:nth-child(2) {
+        margin-right: 0; }
+      .submit-overlay .submit-panel input[type="text"]:focus {
+        border-color: #4AC6B7;
+        color: #4AC6B7; }
+    .submit-overlay .submit-panel input[type="submit"] {
+      background-color: #4AC6B7;
+      border: none;
+      padding: 8px 15px;
+      margin-top: 15px;
+      color: #FFF; }
