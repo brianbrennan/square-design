@@ -32,6 +32,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+*::selection {
+  background-color: #4AC6B7;
+  color: #FFF; }
+
 body {
   background-color: #efefef;
   font-family: 'Open Sans', sans-serif;
@@ -105,7 +109,8 @@ header {
         background-color: #4AC6B7;
         padding: 8px;
         color: #FFF;
-        border-radius: 3px; }
+        border-radius: 3px;
+        cursor: pointer; }
 
 .wrapper {
   max-width: 1140px;
@@ -122,7 +127,8 @@ header {
   background-color: #FFF;
   border-radius: 3px;
   box-shadow: 0px 2px 3px #ccc;
-  padding: 8px; }
+  padding: 8px;
+  position: relative; }
   @media  (min-width: 960px) {
     .pieces .piece {
       width: 32.2033898305%;
@@ -155,13 +161,27 @@ header {
     margin-top: 15px;
     display: block;
     font-size: 12px; }
+  .pieces .piece .likes {
+    float: left;
+    display: inline-block;
+    z-index: 10;
+    position: absolute;
+    left: 8px;
+    font-style: italic; }
   .pieces .piece .like {
     background-color: #efefef;
     width: 30px;
     height: 30px;
     float: right;
     display: inline-block;
-    margin-top: -18px; }
+    margin-top: -18px;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    transition: 0.2s; }
+    .pieces .piece .like:hover {
+      background-color: #ccc; }
+    .pieces .piece .like.active {
+      background-color: #4AC6B7; }
 
 .submit-overlay {
   background-color: rgba(129, 141, 151, 0.5);
@@ -171,23 +191,25 @@ header {
   top: 0;
   left: 0;
   opacity: 0;
-  visibility: hidden; }
+  visibility: hidden;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  transition: 0.2s; }
   .submit-overlay .submit-panel {
     width: 300px;
     background: #FFF;
     margin: 120px auto;
     padding: 15px;
+    border-radius: 3px;
     text-align: center; }
     .submit-overlay .submit-panel *:focus {
       outline: none; }
-    .submit-overlay .submit-panel *::selection {
-      background-color: #4AC6B7;
-      color: #FFF; }
     .submit-overlay .submit-panel input[type="email"] {
       width: 280px;
       padding: 8px;
       margin-bottom: 15px;
-      border: 1px solid #ccc; }
+      border: 1px solid #ccc;
+      border-radius: 3px; }
       .submit-overlay .submit-panel input[type="email"]:focus {
         border-color: #4AC6B7;
         color: #4AC6B7; }
@@ -196,7 +218,8 @@ header {
       padding: 8px;
       margin-bottom: 15px;
       margin-right: 15px;
-      border: 1px solid #ccc; }
+      border: 1px solid #ccc;
+      border-radius: 3px; }
       .submit-overlay .submit-panel input[type="text"]:nth-child(2) {
         margin-right: 0; }
       .submit-overlay .submit-panel input[type="text"]:focus {
@@ -207,4 +230,5 @@ header {
       border: none;
       padding: 8px 15px;
       margin-top: 15px;
-      color: #FFF; }
+      color: #FFF;
+      border-radius: 3px; }

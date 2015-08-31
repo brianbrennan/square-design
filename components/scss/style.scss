@@ -10,6 +10,11 @@ $susy: (
 	gutter-position:after
 	);
 
+*::selection{
+	background-color: $green;
+	color:$white;
+}
+
 body{
 	background-color:$lighter-grey;
 	font-family:$body;
@@ -86,6 +91,7 @@ header{
 				padding:$tny;
 				color:$white;
 				border-radius:$mic;
+				cursor:pointer;
 			}
 		}
 	}
@@ -105,6 +111,7 @@ header{
 		border-radius:$mic;
 		box-shadow: 0px 2px $mic $light-grey;
 		padding:$tny;
+		position:relative;
 
 		@include breakpoint(960px){
 			@include span(4);
@@ -141,6 +148,15 @@ header{
 			font-size:12px;
 		}
 
+		.likes{
+			float:left;
+			display:inline-block;
+			z-index:10;
+			position:absolute;
+			left:$tny;
+			font-style:italic;
+		}
+
 		.like{
 			background-color:$lighter-grey;
 			width:$reg;
@@ -148,6 +164,15 @@ header{
 			float:right;
 			display:inline-block;
 			margin-top:-($sm + $mic);
+			@include transition(0.2s);
+
+			&:hover{
+				background-color:$light-grey;
+			}
+
+			&.active{
+				background-color:$green;
+			}
 		}
 	}
 }
@@ -161,21 +186,18 @@ header{
 	left:0;
 	opacity:0;
 	visibility:hidden;
+	@include transition(0.2s);
 
 	.submit-panel{
 		width:300px;
 		background:$white;
 		margin: $xxl auto;
 		padding:$sm;
+		border-radius:$mic;
 		text-align:center;
 
 		*:focus{
 			outline:none;
-		}
-
-		*::selection{
-			background-color: $green;
-			color:$white;
 		}
 
 		input[type="email"]{
@@ -183,6 +205,7 @@ header{
 			padding:$tny;
 			margin-bottom:$sm;
 			border: 1px solid $light-grey;
+			border-radius:$mic;
 
 			&:focus{
 				border-color:$green;
@@ -196,6 +219,7 @@ header{
 			margin-bottom:$sm;
 			margin-right:$sm;
 			border: 1px solid $light-grey;
+			border-radius:$mic;
 
 			&:nth-child(2){
 				margin-right:0;
@@ -213,6 +237,7 @@ header{
 			padding:$tny $sm;
 			margin-top:$sm;
 			color:$white;
+			border-radius:$mic;
 		}
 
 
