@@ -7,17 +7,50 @@
 
 $susy: (
   columns: 12,
-  gutter-position:split
+  gutter-position:after
 );
 
 body{
-	background-color:$lighter;
+	background-color:$lighter-grey;
 }
 
 header{
-	height:$xl;
+	height:$lg;
 	width:100%;
-	background-color:$dark;
+	padding:0 $sm;
+	margin-bottom:$sm;
+	box-sizing:border-box;
+
+	.logo{
+		font-family: $headline;
+		font-size:2em;
+		letter-spacing:.3em;
+		margin-top: $reg - $tny;
+		color:$dark;
+		@include span(3);
+	}
+
+	nav{
+		@include span(6);
+		@include last();
+		font-family:$body;
+		color:$dark;
+		margin-top:$reg;
+
+		ul{
+			float:right;
+		}
+
+		li{
+			display:inline-block;
+			text-align:right;
+			margin-right:$reg;
+
+			&:nth-child(5n){
+				margin-right:0;
+			}
+		}
+	}
 }
 
 .wrapper{
@@ -29,19 +62,40 @@ header{
 	
 	.piece{
 		margin-bottom:$sm;
-		@include span(3);
 		box-sizing:border-box;
 		height:100px;
 		background-color:$white;
 		border-radius:$mic;
-		box-shadow: 0px 2px $mic $light;
+		box-shadow: 0px 2px $mic $light-grey;
 
-		&.wide{
-			@include span(6);
+		@include breakpoint(1140px){
+			@include span(3);
+
+			&:nth-child(4n){
+				@include last();
+			}
 		}
 
-		&.tall{
-			height:200px;
+		@include breakpoint(760px 1139px){
+			@include span(4);
+
+			&:nth-child(3n){
+				@include last();
+			}
+		}
+
+		@include breakpoint(480px 759px){
+			@include span(6);
+
+			&:nth-child(2n){
+				@include last();
+			}
+		}
+
+		@include breakpoint(0px 480px){
+			@include span(12);
+
+			border-bottom:1px solid $lighter-grey;
 		}
 	}
 

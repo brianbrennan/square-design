@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway|Open+Sans);
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -32,12 +33,40 @@ table {
   border-spacing: 0; }
 
 body {
-  background-color: #D2E4F1; }
+  background-color: #efefef; }
 
 header {
-  height: 90px;
+  height: 60px;
   width: 100%;
-  background-color: #818D97; }
+  padding: 0 15px;
+  margin-bottom: 15px;
+  box-sizing: border-box; }
+  header .logo {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2em;
+    letter-spacing: .3em;
+    margin-top: 22px;
+    color: #818D97;
+    width: 23.7288135593%;
+    float: left;
+    margin-right: 1.6949152542%; }
+  header nav {
+    width: 49.1525423729%;
+    float: left;
+    margin-right: 1.6949152542%;
+    float: right;
+    margin-right: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #818D97;
+    margin-top: 30px; }
+    header nav ul {
+      float: right; }
+    header nav li {
+      display: inline-block;
+      text-align: right;
+      margin-right: 30px; }
+      header nav li:nth-child(5n) {
+        margin-right: 0; }
 
 .wrapper {
   max-width: 1140px;
@@ -50,19 +79,39 @@ header {
 
 .pieces .piece {
   margin-bottom: 15px;
-  width: 23.3333333333%;
-  float: left;
-  margin-left: 0.8333333333%;
-  margin-right: 0.8333333333%;
   box-sizing: border-box;
   height: 100px;
   background-color: #FFF;
   border-radius: 3px;
-  box-shadow: 0px 2px 3px #8FACC0; }
-  .pieces .piece.wide {
-    width: 48.3333333333%;
-    float: left;
-    margin-left: 0.8333333333%;
-    margin-right: 0.8333333333%; }
-  .pieces .piece.tall {
-    height: 200px; }
+  box-shadow: 0px 2px 3px #ccc; }
+  @media  (min-width: 1140px) {
+    .pieces .piece {
+      width: 23.7288135593%;
+      float: left;
+      margin-right: 1.6949152542%; }
+      .pieces .piece:nth-child(4n) {
+        float: right;
+        margin-right: 0; } }
+  @media  (min-width: 760px) and (max-width: 1139px) {
+    .pieces .piece {
+      width: 32.2033898305%;
+      float: left;
+      margin-right: 1.6949152542%; }
+      .pieces .piece:nth-child(3n) {
+        float: right;
+        margin-right: 0; } }
+  @media  (min-width: 480px) and (max-width: 759px) {
+    .pieces .piece {
+      width: 49.1525423729%;
+      float: left;
+      margin-right: 1.6949152542%; }
+      .pieces .piece:nth-child(2n) {
+        float: right;
+        margin-right: 0; } }
+  @media  (min-width: 0px) and (max-width: 480px) {
+    .pieces .piece {
+      width: 100%;
+      float: left;
+      margin-left: 0;
+      margin-right: 0;
+      border-bottom: 1px solid #efefef; } }
