@@ -12,6 +12,8 @@ $susy: (
 
 body{
 	background-color:$lighter-grey;
+	font-family:$body;
+	color:$dark;
 }
 
 header{
@@ -28,11 +30,11 @@ header{
 		margin-top: $reg - $tny;
 		color:$dark;
 
-		@include breakpoint(640px){
+		@include breakpoint(760px){
 			@include span(3);
 		}
 
-		@include breakpoint(0 639px){
+		@include breakpoint(0 759px){
 			@include span(12);
 			text-align:center;
 		}
@@ -42,19 +44,19 @@ header{
 		font-family:$body;
 		color:$dark;
 
-		@include breakpoint(830px){
+		@include breakpoint(840px){
 			@include span(6);
 			@include last();
 			margin-top:$reg;
 		}
 
-		@include breakpoint(640px 829px){
+		@include breakpoint(760px 839px){
 			@include span(9);
 			@include last();
 			margin-top:$reg;
 		}
 
-		@include breakpoint(0px 639px){
+		@include breakpoint(0px 759px){
 			@include span(12);
 			margin-top:$sm;
 			margin-bottom:$sm;
@@ -63,7 +65,7 @@ header{
 		ul{
 			float:right;
 
-			@include breakpoint(0 640px){
+			@include breakpoint(0 759px){
 				display:block;
 				width:100%;
 				text-align:center;
@@ -77,6 +79,13 @@ header{
 
 			&:nth-child(5n){
 				margin-right:0;
+			}
+
+			&.cta{
+				background-color:$green;
+				padding:$tny;
+				color:$white;
+				border-radius:$mic;
 			}
 		}
 	}
@@ -92,20 +101,12 @@ header{
 	.piece{
 		margin-bottom:$sm;
 		box-sizing:border-box;
-		height:100px;
 		background-color:$white;
 		border-radius:$mic;
 		box-shadow: 0px 2px $mic $light-grey;
+		padding:$tny;
 
-		@include breakpoint(1140px){
-			@include span(3);
-
-			&:nth-child(4n){
-				@include last();
-			}
-		}
-
-		@include breakpoint(760px 1139px){
+		@include breakpoint(960px){
 			@include span(4);
 
 			&:nth-child(3n){
@@ -113,7 +114,7 @@ header{
 			}
 		}
 
-		@include breakpoint(480px 759px){
+		@include breakpoint(760px 959px){
 			@include span(6);
 
 			&:nth-child(2n){
@@ -121,10 +122,32 @@ header{
 			}
 		}
 
-		@include breakpoint(0px 480px){
+		@include breakpoint(0px 759px){
 			@include span(12);
 
 			border-bottom:1px solid $lighter-grey;
+		}
+
+		.image{
+			background-color:$lighter-grey;
+			border-radius:$mic;
+			width:100%;
+		}
+
+		span{
+			text-align:center;
+			margin-top:$sm;
+			display:block;
+			font-size:12px;
+		}
+
+		.like{
+			background-color:$lighter-grey;
+			width:$reg;
+			height:$reg;
+			float:right;
+			display:inline-block;
+			margin-top:-($sm + $mic);
 		}
 	}
 

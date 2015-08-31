@@ -33,7 +33,9 @@ table {
   border-spacing: 0; }
 
 body {
-  background-color: #efefef; }
+  background-color: #efefef;
+  font-family: 'Open Sans', sans-serif;
+  color: #818D97; }
 
 header {
   height: 60px;
@@ -47,12 +49,12 @@ header {
     letter-spacing: .3em;
     margin-top: 22px;
     color: #818D97; }
-    @media  (min-width: 640px) {
+    @media  (min-width: 760px) {
       header .logo {
         width: 23.7288135593%;
         float: left;
         margin-right: 1.6949152542%; } }
-    @media  (min-width: 0) and (max-width: 639px) {
+    @media  (min-width: 0) and (max-width: 759px) {
       header .logo {
         width: 100%;
         float: left;
@@ -62,7 +64,7 @@ header {
   header nav {
     font-family: 'Open Sans', sans-serif;
     color: #818D97; }
-    @media  (min-width: 830px) {
+    @media  (min-width: 840px) {
       header nav {
         width: 49.1525423729%;
         float: left;
@@ -70,7 +72,7 @@ header {
         float: right;
         margin-right: 0;
         margin-top: 30px; } }
-    @media  (min-width: 640px) and (max-width: 829px) {
+    @media  (min-width: 760px) and (max-width: 839px) {
       header nav {
         width: 74.5762711864%;
         float: left;
@@ -78,7 +80,7 @@ header {
         float: right;
         margin-right: 0;
         margin-top: 30px; } }
-    @media  (min-width: 0px) and (max-width: 639px) {
+    @media  (min-width: 0px) and (max-width: 759px) {
       header nav {
         width: 100%;
         float: left;
@@ -88,7 +90,7 @@ header {
         margin-bottom: 15px; } }
     header nav ul {
       float: right; }
-      @media  (min-width: 0) and (max-width: 640px) {
+      @media  (min-width: 0) and (max-width: 759px) {
         header nav ul {
           display: block;
           width: 100%;
@@ -99,6 +101,11 @@ header {
       margin-right: 30px; }
       header nav li:nth-child(5n) {
         margin-right: 0; }
+      header nav li.cta {
+        background-color: #4AC6B7;
+        padding: 8px;
+        color: #FFF;
+        border-radius: 3px; }
 
 .wrapper {
   max-width: 1140px;
@@ -112,19 +119,11 @@ header {
 .pieces .piece {
   margin-bottom: 15px;
   box-sizing: border-box;
-  height: 100px;
   background-color: #FFF;
   border-radius: 3px;
-  box-shadow: 0px 2px 3px #ccc; }
-  @media  (min-width: 1140px) {
-    .pieces .piece {
-      width: 23.7288135593%;
-      float: left;
-      margin-right: 1.6949152542%; }
-      .pieces .piece:nth-child(4n) {
-        float: right;
-        margin-right: 0; } }
-  @media  (min-width: 760px) and (max-width: 1139px) {
+  box-shadow: 0px 2px 3px #ccc;
+  padding: 8px; }
+  @media  (min-width: 960px) {
     .pieces .piece {
       width: 32.2033898305%;
       float: left;
@@ -132,7 +131,7 @@ header {
       .pieces .piece:nth-child(3n) {
         float: right;
         margin-right: 0; } }
-  @media  (min-width: 480px) and (max-width: 759px) {
+  @media  (min-width: 760px) and (max-width: 959px) {
     .pieces .piece {
       width: 49.1525423729%;
       float: left;
@@ -140,10 +139,26 @@ header {
       .pieces .piece:nth-child(2n) {
         float: right;
         margin-right: 0; } }
-  @media  (min-width: 0px) and (max-width: 480px) {
+  @media  (min-width: 0px) and (max-width: 759px) {
     .pieces .piece {
       width: 100%;
       float: left;
       margin-left: 0;
       margin-right: 0;
       border-bottom: 1px solid #efefef; } }
+  .pieces .piece .image {
+    background-color: #efefef;
+    border-radius: 3px;
+    width: 100%; }
+  .pieces .piece span {
+    text-align: center;
+    margin-top: 15px;
+    display: block;
+    font-size: 12px; }
+  .pieces .piece .like {
+    background-color: #efefef;
+    width: 30px;
+    height: 30px;
+    float: right;
+    display: inline-block;
+    margin-top: -18px; }
