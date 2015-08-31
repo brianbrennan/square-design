@@ -1,0 +1,49 @@
+@import "../lib/bourbon/app/assets/stylesheets/bourbon";
+@import "../lib/breakpoint-sass/stylesheets/breakpoint";
+@import "../lib/susy/sass/susy";
+
+@import "reset";
+@import "variables";
+
+$susy: (
+  columns: 12,
+  gutter-position:split
+);
+
+body{
+	background-color:$lighter;
+}
+
+header{
+	height:$xl;
+	width:100%;
+	background-color:$dark;
+}
+
+.wrapper{
+	@include container(1140px);
+}
+
+
+.pieces{
+	
+	.piece{
+		margin-bottom:$sm;
+		@include span(3);
+		box-sizing:border-box;
+		height:100px;
+		background-color:$white;
+		border-radius:$mic;
+		box-shadow: 0px 2px $mic $light;
+
+		&.wide{
+			@include span(6);
+		}
+
+		&.tall{
+			height:200px;
+		}
+	}
+
+
+}

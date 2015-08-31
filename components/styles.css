@@ -1,0 +1,68 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background-color: #D2E4F1; }
+
+header {
+  height: 90px;
+  width: 100%;
+  background-color: #818D97; }
+
+.wrapper {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto; }
+  .wrapper:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+.pieces .piece {
+  margin-bottom: 15px;
+  width: 23.3333333333%;
+  float: left;
+  margin-left: 0.8333333333%;
+  margin-right: 0.8333333333%;
+  box-sizing: border-box;
+  height: 100px;
+  background-color: #FFF;
+  border-radius: 3px;
+  box-shadow: 0px 2px 3px #8FACC0; }
+  .pieces .piece.wide {
+    width: 48.3333333333%;
+    float: left;
+    margin-left: 0.8333333333%;
+    margin-right: 0.8333333333%; }
+  .pieces .piece.tall {
+    height: 200px; }
