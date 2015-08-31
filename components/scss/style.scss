@@ -158,7 +158,6 @@ header{
 		}
 
 		.like{
-			background-color:$lighter-grey;
 			width:$reg;
 			height:$reg;
 			float:right;
@@ -167,11 +166,20 @@ header{
 			@include transition(0.2s);
 
 			&:hover{
-				background-color:$light-grey;
+				svg{
+					fill:$light-grey;
+				}
 			}
 
 			&.active{
-				background-color:$green;
+				svg{
+					fill: $green;
+				}
+			}
+
+			svg{
+				@include transition(.2s);
+				fill:$lighter-grey
 			}
 		}
 	}

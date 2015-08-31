@@ -169,7 +169,6 @@ header {
     left: 8px;
     font-style: italic; }
   .pieces .piece .like {
-    background-color: #efefef;
     width: 30px;
     height: 30px;
     float: right;
@@ -178,10 +177,15 @@ header {
     -webkit-transition: 0.2s;
     -moz-transition: 0.2s;
     transition: 0.2s; }
-    .pieces .piece .like:hover {
-      background-color: #ccc; }
-    .pieces .piece .like.active {
-      background-color: #4AC6B7; }
+    .pieces .piece .like:hover svg {
+      fill: #ccc; }
+    .pieces .piece .like.active svg {
+      fill: #4AC6B7; }
+    .pieces .piece .like svg {
+      -webkit-transition: .2s;
+      -moz-transition: .2s;
+      transition: .2s;
+      fill: #efefef; }
 
 .submit-overlay {
   background-color: rgba(129, 141, 151, 0.5);
