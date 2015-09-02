@@ -173,18 +173,28 @@ module.exports = function(app, express){
 			});
 		})
 
-		.delete(function(req,res){
-			User.remove({
-				_id: req.params.user_id
-			}, function(err, user){
-				if(err)
-					return res.send(err);
+		// .delete(function(req,res){
 
-				res.json({
-					message: 'Successfully Deleted'
-				});
-			});
-		});
+		// 	User.findById(req.params.user_id, function(err, user){
+		// 		console.log(user);
+		// 		if(user.username == req.body.username && user.password == req.body.password){
+		// 			User.remove({
+		// 				_id: req.params.user_id
+		// 			}, function(err, user){
+		// 				if(err)
+		// 					return res.send(err);
+
+		// 				res.json({
+		// 					message: 'Successfully Deleted'
+		// 				});
+		// 			});	
+		// 		} else {
+		// 			res.json({
+		// 				message: 'Did not delete'
+		// 			});
+		// 		}
+		// 	});
+		// });
 
 	//PIC ROUTES SET UP FOR API
 
@@ -218,6 +228,11 @@ module.exports = function(app, express){
 
 			});
 		});
-		
+
+	apiRouter.route('/pics/:id')
+		.get(function(req, res){
+			Pic.find()
+		})
+
 	return apiRouter;
 }

@@ -54,6 +54,8 @@ app.post('/registerUser', function(req, res) {
 				return res.send(err);
 		}
 	});
+
+	res.sendFile(__dirname + '/public/index.html');
 });
 
 app.use('/api',apiRoutes);
