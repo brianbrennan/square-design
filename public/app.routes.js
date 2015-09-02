@@ -14,6 +14,12 @@ route.config(function($routeProvider, $locationProvider){
 		controllerAs: 'login'
 	})
 
+	.when('/submit', {
+		templateUrl: 'app/views/pages/submit.html',
+		controller: 'mainController',
+		controllerAs: 'login'
+	})
+
 	.when('/signup', {
 		templateUrl: 'app/views/pages/signup.html',
 		controller: 'userCreateController',

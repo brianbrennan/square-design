@@ -1,7 +1,7 @@
 function sizing(){
 	var width = s(".piece").css("width")[0];
 
-	width = (Number(width.substr(0,width.length - 4))) * 9 / 16  + 45;
+	width = (Number(width.substr(0, width.length - 4))) * 9 / 16  + 45;
 
 	width = String(width) + "px";
 

@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 		uglify: {
 			my_target: {
 				files: {
-					'public/app/components/script.js': ['components/js/*.js']
+					'public/app/components/script.js': ['public/app/components/js/*.js']
 				} //files
 			} //my_target
 		}, //uglify
