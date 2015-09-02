@@ -39,6 +39,23 @@ app.use(morgan('dev'));
 
 mongoose.connect(config.database);
 
+app.post('/registerUser', function(req, res) {
+	var User = require('./app/model/user');
+	var user = new User();      
+	user.name = req.body.name;  
+	user.username = req.body.username;
+	user.password = req.body.password;
+
+	user.save(function(err) {
+		if (err) {
+			if (err.code == 11000) 
+				return res.json({ success: false, message: 'A user with that username already exists. '});
+			else 
+				return res.send(err);
+		}
+	});
+});
+
 app.use('/api',apiRoutes);
 app.use(express.static(__dirname + '/public'));
 

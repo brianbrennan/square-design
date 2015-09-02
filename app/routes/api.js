@@ -186,8 +186,10 @@ module.exports = function(app, express){
 			});
 		});
 
+	//PIC ROUTES SET UP FOR API
+
 	apiRouter.route('/pics')
-		.get(function(req, res){
+		.get(function(req, res){//Command for getting picture
 			Pic.find(function(err, pics){
 				if(err)
 					res.send(err);
@@ -196,7 +198,7 @@ module.exports = function(app, express){
 			});
 		})
 
-		.post(function(req,res){
+		.post(function(req,res){//Command for Posting Picture
 			var pic = new Pic();
 
 			pic.firstName = req.body.firstName;
@@ -215,6 +217,7 @@ module.exports = function(app, express){
 
 
 			});
-		})
+		});
+		
 	return apiRouter;
 }

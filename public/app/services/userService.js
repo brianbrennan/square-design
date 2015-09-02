@@ -13,7 +13,7 @@ angular.module('userService', [])
 		};
 
 		factory.createUser = function(data){
-			return $http.post('/api/users', data);
+			return $http.post('/registerUser', data);
 		};
 
 		factory.update = function(id, data){

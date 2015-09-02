@@ -14,10 +14,10 @@ var PicSchema = new Schema({
 		required: true
 	},
 	image: {
-		type String,
+		type: String,
 		required: true
 	}
 });
 
 //export the Model
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Pic', PicSchema);
