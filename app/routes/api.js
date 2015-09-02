@@ -185,5 +185,36 @@ module.exports = function(app, express){
 				});
 			});
 		});
+
+	apiRouter.route('/pics')
+		.get(function(req, res){
+			Pic.find(function(err, pics){
+				if(err)
+					res.send(err);
+
+				res.json(pics);
+			});
+		})
+
+		.post(function(req,res){
+			var pic = new Pic();
+
+			pic.firstName = req.body.firstName;
+			pic.lastName = req.body.lastName;
+			pic.email = req.body.email;
+			pic.image = req.body.image;
+
+			pic.save(function(err){
+				if(err){
+					return res.send(err);
+				}
+
+				res.json({
+					message:'Pic Uploaded!'
+				});
+
+
+			});
+		})
 	return apiRouter;
 }
