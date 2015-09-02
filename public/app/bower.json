@@ -1,0 +1,19 @@
+{
+  "name": "square-design-test",
+  "version": "0.0.1",
+  "moduleType": [
+    "node"
+  ],
+  "author":"Brian Brennan",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/app/components/lib"
+  ],
+  "dependencies": {
+    "susy": "~2.2.2",
+    "breakpoint-sass": "~2.5.0",
+    "bourbon": "~4.2.2"
+  }
+}
