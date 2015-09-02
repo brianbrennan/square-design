@@ -9,6 +9,7 @@ var express 			= require('express'),
 	jwt					= require('jsonwebtoken'),
 	User 				= require('./app/model/user'),
 	config 				= require('./config'),
+	cloudinary			= require('cloudinary'),
 	apiRoutes			= require('./app/routes/api')(app, express);
 
 

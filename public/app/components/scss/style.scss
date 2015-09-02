@@ -4,6 +4,7 @@
 
 @import "reset";
 @import "variables";
+@import "animations";
 
 $susy: (
 	columns: 12,
@@ -82,23 +83,25 @@ header{
 			}
 		}
 
-		li{
-			display:inline-block;
-			text-align:right;
-			margin-right:$reg;
-
-			&.cta{
-				background-color:$green;
-				padding:$tny $sm;
-				color:$white;
-				border-radius:$mic;
-				cursor:pointer;
-			}
-		}
-
-		& a:nth-child(5n){
+		a{
 			li{
-				margin-right:0;
+				display:inline-block;
+				text-align:right;
+				margin-right:$reg;
+
+				&.cta{
+					background-color:$green;
+					padding:$tny $sm;
+					color:$white;
+					border-radius:$mic;
+					cursor:pointer;
+				}
+			}
+
+			&:last-child{
+				li{
+					margin-right:0;
+				}
 			}
 		}
 	}
@@ -191,7 +194,7 @@ header{
 	}
 }
 
-.submit-form{
+.submit-form, .signup-form{
 	width:420px;
 	margin:auto;
 	margin-top:$xxl;
@@ -215,6 +218,7 @@ header{
 		margin-bottom:$sm;
 		border: 1px solid $light-grey;
 		border-radius:$mic;
+		color:$dark;
 
 		&:focus{
 			border-color:$green;
@@ -222,13 +226,14 @@ header{
 		}
 	}
 
-	input[type="text"]{
+	input[type="text"], input[type="password"]{
 		width:182px;
 		padding:$tny;
 		margin-bottom:$sm;
 		margin-right:$sm;
 		border: 1px solid $light-grey;
 		border-radius:$mic;
+		color:$dark;
 
 		&:nth-child(2){
 			margin-right:0;
@@ -250,7 +255,7 @@ header{
 		margin-right:$tny;
 	}
 
-	input[type="submit"]{
+	*[type="submit"]{
 		background-color:$green;
 		border:none;
 		padding:$tny $sm;
@@ -258,5 +263,6 @@ header{
 		color:$white;
 		border-radius:$mic;
 		font-size:1em;
+		cursor:pointer;
 	}
 }

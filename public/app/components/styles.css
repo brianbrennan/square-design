@@ -32,6 +32,23 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%); }
+
+  to {
+    transform: translateY(0); } }
+
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-100%); } }
+
+.ng-enter {
+  animation: slideInUp 0.3s both ease-in-out; }
+
+.ng-leave {
+  animation: slideOutLeft 0.3s both ease-in-out; }
+
 *::selection {
   background-color: #4AC6B7;
   color: #FFF; }
@@ -103,17 +120,17 @@ header {
           display: block;
           width: 100%;
           text-align: center; } }
-    header nav li {
+    header nav a li {
       display: inline-block;
       text-align: right;
       margin-right: 30px; }
-      header nav li.cta {
+      header nav a li.cta {
         background-color: #4AC6B7;
         padding: 8px 15px;
         color: #FFF;
         border-radius: 3px;
         cursor: pointer; }
-    header nav a:nth-child(5n) li {
+    header nav a:last-child li {
       margin-right: 0; }
 
 .wrapper {
@@ -190,41 +207,43 @@ header {
       transition: .2s;
       fill: #efefef; }
 
-.submit-form {
+.submit-form, .signup-form {
   width: 420px;
   margin: auto;
   margin-top: 120px;
   text-align: center; }
-  .submit-form *:focus {
+  .submit-form *:focus, .signup-form *:focus {
     outline: none; }
-  .submit-form h1 {
+  .submit-form h1, .signup-form h1 {
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 2em;
     letter-spacing: .3em;
     margin-bottom: 15px; }
-  .submit-form input[type="email"] {
+  .submit-form input[type="email"], .signup-form input[type="email"] {
     width: 402px;
     padding: 8px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 3px; }
-    .submit-form input[type="email"]:focus {
+    border-radius: 3px;
+    color: #818D97; }
+    .submit-form input[type="email"]:focus, .signup-form input[type="email"]:focus {
       border-color: #4AC6B7;
       color: #4AC6B7; }
-  .submit-form input[type="text"] {
+  .submit-form input[type="text"], .submit-form input[type="password"], .signup-form input[type="text"], .signup-form input[type="password"] {
     width: 182px;
     padding: 8px;
     margin-bottom: 15px;
     margin-right: 15px;
     border: 1px solid #ccc;
-    border-radius: 3px; }
-    .submit-form input[type="text"]:nth-child(2) {
+    border-radius: 3px;
+    color: #818D97; }
+    .submit-form input[type="text"]:nth-child(2), .submit-form input[type="password"]:nth-child(2), .signup-form input[type="text"]:nth-child(2), .signup-form input[type="password"]:nth-child(2) {
       margin-right: 0; }
-    .submit-form input[type="text"]:focus {
+    .submit-form input[type="text"]:focus, .submit-form input[type="password"]:focus, .signup-form input[type="text"]:focus, .signup-form input[type="password"]:focus {
       border-color: #4AC6B7;
       color: #4AC6B7; }
-  .submit-form input[type="file"]::-webkit-file-upload-button {
+  .submit-form input[type="file"]::-webkit-file-upload-button, .signup-form input[type="file"]::-webkit-file-upload-button {
     background-color: #FFF;
     border: none;
     padding: 8px 15px;
@@ -232,11 +251,12 @@ header {
     color: #818D97;
     border-radius: 3px;
     margin-right: 8px; }
-  .submit-form input[type="submit"] {
+  .submit-form *[type="submit"], .signup-form *[type="submit"] {
     background-color: #4AC6B7;
     border: none;
     padding: 8px 15px;
     margin-top: 15px;
     color: #FFF;
     border-radius: 3px;
-    font-size: 1em; }
+    font-size: 1em;
+    cursor: pointer; }
