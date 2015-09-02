@@ -87,16 +87,18 @@ header{
 			text-align:right;
 			margin-right:$reg;
 
-			&:nth-child(5n){
-				margin-right:0;
-			}
-
 			&.cta{
 				background-color:$green;
 				padding:$tny $sm;
 				color:$white;
 				border-radius:$mic;
 				cursor:pointer;
+			}
+		}
+
+		& a:nth-child(5n){
+			li{
+				margin-right:0;
 			}
 		}
 	}
@@ -236,6 +238,16 @@ header{
 			border-color:$green;
 			color:$green;
 		}
+	}
+
+	input[type="file"]::-webkit-file-upload-button{
+		background-color: $white;
+		border:none;
+		padding:$tny $sm;
+		border:1px solid $light-grey;
+		color:$dark;
+		border-radius:$mic;
+		margin-right:$tny;
 	}
 
 	input[type="submit"]{
