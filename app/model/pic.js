@@ -16,7 +16,8 @@ var PicSchema = new Schema({
 	image: {
 		type: String,
 		required: true
-	}
+	},
+	visible: Boolean
 });
 
 //export the Model

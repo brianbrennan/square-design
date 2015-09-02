@@ -215,6 +215,7 @@ module.exports = function(app, express){
 			pic.lastName = req.body.lastName;
 			pic.email = req.body.email;
 			pic.image = req.body.image;
+			pic.visible = false;
 
 			pic.save(function(err){
 				if(err){
