@@ -1,4 +1,5 @@
 var User 		= require('../model/user'),
+	Pic			= require('../model/pic'),
 	jwt			= require('jsonwebtoken'),
 	config		= require('../../config'),
 	uberSecret 	= config.secret;
