@@ -9,7 +9,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "components/lib"
+    "public/app/components/lib"
   ],
   "dependencies": {
     "susy": "~2.2.2",
