@@ -12,7 +12,7 @@
 	<script src="app.routes.js"></script>
 	<script src="app/services/authService.js"></script>
 	<script src="app/services/userService.js"></script>
-	<script src="app/controllers/mainController.js"></script>
+	<script src="app/controllers/loginController.js"></script>
 	<script src="app/controllers/homeController.js"></script>
 	<script src="app/controllers/userController.js"></script>
 	<script src="app/controllers/userCreateController.js"></script>
@@ -27,8 +27,11 @@
 
 			<nav>
 				<ul>
-					<a ng-href="/login"><li>Log In</li></a>
-					<a ng-href="/signup"><li class="cta submit-button">Sign Up</li></a>
+
+					<a ng-href="/profile" ng-if="$root.loggedIn"><li>Profile</li></a>
+					<a ng-href="/logout" ng-if="$root.loggedIn"><li>Log Out</li></a>
+					<a ng-href="/login" ng-if="$root.loggedIn==false"><li>Log In</li></a>
+					<a ng-href="/signup" ng-if="$root.loggedIn==false"><li class="cta submit-button">Sign Up</li></a>
 				</ul>
 			</nav>
 		</div>

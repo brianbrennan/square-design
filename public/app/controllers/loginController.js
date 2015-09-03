@@ -1,8 +1,6 @@
-angular.module('mainCtrl', [])
+angular.module('loginCtrl', [])
 
-	.controller('mainController', function($rootScope, $location, Auth){
-
-		sizing();
+	.controller('loginController', function($rootScope, $location, Auth){
 
 		s('input').css('margin-right', 0);
 
@@ -19,6 +17,8 @@ angular.module('mainCtrl', [])
 					vm.user = data;
 				});
 		});
+
+		$rootScope.loggedIn = Auth.isLoggedIn();
 
 		vm.doLogin = function(){
 

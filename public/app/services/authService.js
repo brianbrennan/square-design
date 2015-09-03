@@ -15,10 +15,6 @@ angular.module('authService', [])
 			});
 		};
 
-		factory.signUp = function(userData){
-			
-		};
-
 		factory.logout = function(){
 			AuthToken.setToken();
 		};
