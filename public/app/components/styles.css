@@ -34,10 +34,21 @@ table {
 
 .ng-enter {
   opacity: 0;
-  transition: 1s; }
+  -webkit-transition: 0.2s ease-in-out 0.25s;
+  -moz-transition: 0.2s ease-in-out 0.25s;
+  transition: 0.2s ease-in-out 0.25s; }
 
 .ng-enter-active {
   opacity: 1; }
+
+.ng-leave {
+  opacity: 1;
+  -webkit-transition: 0.2s opacity ease-in-out;
+  -moz-transition: 0.2s opacity ease-in-out;
+  transition: 0.2s opacity ease-in-out; }
+
+.ng-leave-active {
+  opacity: 0; }
 
 *::selection {
   background-color: #4AC6B7;

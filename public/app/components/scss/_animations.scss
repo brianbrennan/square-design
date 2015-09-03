@@ -1,8 +1,17 @@
 .ng-enter{
 	opacity:0;
-	transition:1s
+	@include transition(0.2s ease-in-out 0.25s);
 }
 
 .ng-enter-active{
 	opacity:1;
+}
+
+.ng-leave{
+	opacity:1;
+	@include transition(0.2s opacity ease-in-out);
+}
+
+.ng-leave-active{
+	opacity:0;
 }
