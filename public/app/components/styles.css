@@ -32,22 +32,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-@keyframes slideInUp {
-  from {
-    transform: translateY(100%); }
-
-  to {
-    transform: translateY(0); } }
-
-@keyframes slideOutLeft {
-  to {
-    transform: translateX(-100%); } }
-
 .ng-enter {
-  animation: slideInUp 0.3s both ease-in-out; }
+  opacity: 0;
+  transition: 1s; }
 
-.ng-leave {
-  animation: slideOutLeft 0.3s both ease-in-out; }
+.ng-enter-active {
+  opacity: 1; }
 
 *::selection {
   background-color: #4AC6B7;

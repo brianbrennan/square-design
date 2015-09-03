@@ -1,11 +1,8 @@
-@keyframes slideInUp {
-    from    { transform:translateY(100%); }
-    to      { transform: translateY(0); }
+.ng-enter{
+	opacity:0;
+	transition:1s
 }
 
-@keyframes slideOutLeft {
-    to      { transform: translateX(-100%); }
+.ng-enter-active{
+	opacity:1;
 }
-
-.ng-enter{animation:slideInUp 0.3s both ease-in-out}
-.ng-leave{animation:slideOutLeft 0.3s both ease-in-out}

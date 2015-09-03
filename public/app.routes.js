@@ -5,7 +5,8 @@ var route = angular.module('app.routes', ['ngRoute', 'authService']);
 route.config(function($routeProvider, $locationProvider){
 	
 	$routeProvider.when('/', {
-		templateUrl: 'app/views/pages/home.html'
+		templateUrl: 'app/views/pages/home.html',
+		controller: 'homeController'
 	})
 
 	.when('/submit', {

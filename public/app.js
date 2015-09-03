@@ -1,2 +1,2 @@
 
-angular.module('app', ['app.routes', 'mainCtrl', 'userCtrl', 'userCreateCtrl']);
+angular.module('app', ['app.routes', 'mainCtrl', 'userCtrl', 'userCreateCtrl', 'homeCtrl' ,'ngAnimate']);
