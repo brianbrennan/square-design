@@ -10,7 +10,7 @@ angular.module('homeCtrl', [])
 
 		var vm = this;
 
-		$rootScope.loggedIn = Auth.isLoggedIn();
+		vm.loggedIn = Auth.isLoggedIn();
 
 		vm.getPics = function(){
 			Pic.getAll();

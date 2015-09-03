@@ -172,7 +172,7 @@ module.exports = function(app, express){
 					});
 				});
 			});
-		})
+		});
 
 		// .delete(function(req,res){
 
