@@ -10,12 +10,8 @@ angular.module('loginCtrl', [])
 
 		$rootScope.$on('$routeChangeStart', function(){
 
-			vm.loggedIn = Auth.isLoggedIn();
+			$rootScope.loggedIn = Auth.isLoggedIn();
 
-			Auth.getUser()
-				.success(function(data){
-					vm.user = data;
-				});
 		});
 
 		$rootScope.loggedIn = Auth.isLoggedIn();

@@ -17,7 +17,7 @@
 	<script src="app/controllers/userController.js"></script>
 	<script src="app/controllers/userCreateController.js"></script>
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-controller="loginController as main">
 	
 	<header>
 		<div class="wrapper">
@@ -29,7 +29,8 @@
 				<ul>
 
 					<a ng-href="/profile" ng-if="$root.loggedIn"><li>Profile</li></a>
-					<a ng-href="/logout" ng-if="$root.loggedIn"><li>Log Out</li></a>
+					<a href="#" ng-if="$root.loggedIn" ng-click="main.doLogout()"><li>Log Out</li></a>
+					<a ng-href="/submit" ng-if="$root.loggedIn"><li class="cta submit-button">Submit</li></a>
 					<a ng-href="/login" ng-if="$root.loggedIn==false"><li>Log In</li></a>
 					<a ng-href="/signup" ng-if="$root.loggedIn==false"><li class="cta submit-button">Sign Up</li></a>
 				</ul>
