@@ -6,17 +6,19 @@ route.config(function($routeProvider, $locationProvider){
 	
 	$routeProvider.when('/', {
 		templateUrl: 'app/views/pages/home.html',
-		controller: 'mainController',
+		controller: 'homeController',
 		controllerAs: 'home'
 	})
 
 	.when('/submit', {
 		templateUrl: 'app/views/pages/submit.html',
+		controller: 'submissionController',
+		controllerAs: 'submit'
 	})
 
 	.when('/login', {
 		templateUrl: 'app/views/pages/login.html',
-		controller: 'mainController',
+		controller: 'loginController',
 		controllerAs: 'login'
 	})
 
@@ -24,7 +26,7 @@ route.config(function($routeProvider, $locationProvider){
 		templateUrl: 'app/views/pages/signup.html',
 		controller: 'userCreateController',
 		controllerAs: 'signUp'
-	});
+	})
 
 	$locationProvider.html5Mode(true);
 });	

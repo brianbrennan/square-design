@@ -1,8 +1,21 @@
 angular.module('homeCtrl', [])
 
-	.controller('homeController', function($scope){
+	.controller('homeController', function($rootScope, $location, Auth, $scope, Pic){
+
 		$scope.$on('$viewContentLoaded', function() {
     		sizing();
 		});
-		$scope.viewClass = 'animate-home';
+
+		$scope.viewClass = 'home';
+
+		var vm = this;
+
+		$rootScope.loggedIn = Auth.isLoggedIn();
+
+		vm.getPics = function(){
+			Pic.getAll();
+		};
+
+		console.log(vm.getPics());
+
 	});

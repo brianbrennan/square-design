@@ -1,6 +1,6 @@
 angular.module('userCreateCtrl', ['userService'])
 
-	.controller('userCreateController', function(User){
+	.controller('userCreateController', function(User, $location){
 
 		s('input').css('margin-right', 0);
 
@@ -11,5 +11,7 @@ angular.module('userCreateCtrl', ['userService'])
 			.success(function(data){
 				vm.user = data;
 			});
+
+			$location.path('/login');
 		};
 	});

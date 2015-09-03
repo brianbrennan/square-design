@@ -18,7 +18,5 @@ function sizing(){
 
 	imgHeight = String(imgHeight) + "px";
 
-	console.log(imgHeight);
-
 	s('.piece > .image').css('height', imgHeight);
 }

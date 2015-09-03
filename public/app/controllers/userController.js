@@ -1,5 +1,11 @@
-angular.module('userCtrl', [])
+angular.module('userCtrl', ['authService'])
 
-	.controller('userController', function(){
+	.controller('userController', function(Auth){
+		var vm = this;
 
+		vm.getUser = function(){
+			Auth.getUser();
+		};
+
+		console.log(vm.getUser());
 	});

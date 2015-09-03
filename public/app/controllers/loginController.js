@@ -1,24 +1,20 @@
-angular.module('mainCtrl', [])
+angular.module('loginCtrl', [])
 
-	.controller('mainController', function($rootScope, $location, Auth){
-
-		sizing();
+	.controller('loginController', function($rootScope, $location, Auth){
 
 		s('input').css('margin-right', 0);
 
 		var vm = this;
 
-		vm.loggedIn = Auth.isLoggedIn();
+		$rootScope.loggedIn = Auth.isLoggedIn();
 
 		$rootScope.$on('$routeChangeStart', function(){
 
-			vm.loggedIn = Auth.isLoggedIn();
+			$rootScope.loggedIn = Auth.isLoggedIn();
 
-			Auth.getUser()
-				.success(function(data){
-					vm.user = data;
-				});
 		});
+
+		$rootScope.loggedIn = Auth.isLoggedIn();
 
 		vm.doLogin = function(){
 

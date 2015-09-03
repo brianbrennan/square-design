@@ -34,6 +34,13 @@ Authorization');
 
 app.use(morgan('dev'));
 
+//---------Cloudinary Configuration
+
+cloudinary.config({ 
+  cloud_name: 'bbrennan', 
+  api_key: '252953896314781', 
+  api_secret: 'u2LZWfNtORMaoyrvOBQlktk7rn8' 
+});
 
 //---------Set up Database Connection
 
