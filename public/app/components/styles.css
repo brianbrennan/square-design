@@ -34,9 +34,9 @@ table {
 
 .ng-enter {
   opacity: 0;
-  -webkit-transition: 0.2s ease-in-out 0.25s;
-  -moz-transition: 0.2s ease-in-out 0.25s;
-  transition: 0.2s ease-in-out 0.25s; }
+  -webkit-transition: 0.2s ease-in-out 0.2s;
+  -moz-transition: 0.2s ease-in-out 0.2s;
+  transition: 0.2s ease-in-out 0.2s; }
 
 .ng-enter-active {
   opacity: 1; }
@@ -208,30 +208,40 @@ header {
       transition: .2s;
       fill: #efefef; }
 
-.submit-form, .signup-form {
+.submit-form, .signup-form, .login-form {
   width: 420px;
   margin: auto;
   margin-top: 120px;
   text-align: center; }
-  .submit-form *:focus, .signup-form *:focus {
+  .submit-form *:focus, .signup-form *:focus, .login-form *:focus {
     outline: none; }
-  .submit-form h1, .signup-form h1 {
+    .submit-form *:focus::-webkit-input-placeholder, .signup-form *:focus::-webkit-input-placeholder, .login-form *:focus::-webkit-input-placeholder {
+      color: #4AC6B7; }
+    .submit-form *:focus:-moz-placeholder, .signup-form *:focus:-moz-placeholder, .login-form *:focus:-moz-placeholder {
+      /* Firefox 18- */
+      color: #4AC6B7; }
+    .submit-form *:focus::-moz-placeholder, .signup-form *:focus::-moz-placeholder, .login-form *:focus::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #4AC6B7; }
+    .submit-form *:focus:-ms-input-placeholder, .signup-form *:focus:-ms-input-placeholder, .login-form *:focus:-ms-input-placeholder {
+      color: #4AC6B7; }
+  .submit-form h1, .signup-form h1, .login-form h1 {
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 2em;
     letter-spacing: .3em;
     margin-bottom: 15px; }
-  .submit-form input[type="email"], .signup-form input[type="email"] {
+  .submit-form input[type="email"], .signup-form input[type="email"], .login-form input[type="email"] {
     width: 402px;
     padding: 8px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
     color: #818D97; }
-    .submit-form input[type="email"]:focus, .signup-form input[type="email"]:focus {
+    .submit-form input[type="email"]:focus, .signup-form input[type="email"]:focus, .login-form input[type="email"]:focus {
       border-color: #4AC6B7;
       color: #4AC6B7; }
-  .submit-form input[type="text"], .submit-form input[type="password"], .signup-form input[type="text"], .signup-form input[type="password"] {
+  .submit-form input[type="text"], .submit-form input[type="password"], .signup-form input[type="text"], .signup-form input[type="password"], .login-form input[type="text"], .login-form input[type="password"] {
     width: 182px;
     padding: 8px;
     margin-bottom: 15px;
@@ -239,12 +249,12 @@ header {
     border: 1px solid #ccc;
     border-radius: 3px;
     color: #818D97; }
-    .submit-form input[type="text"]:nth-child(2), .submit-form input[type="password"]:nth-child(2), .signup-form input[type="text"]:nth-child(2), .signup-form input[type="password"]:nth-child(2) {
+    .submit-form input[type="text"]:nth-child(2), .submit-form input[type="password"]:nth-child(2), .signup-form input[type="text"]:nth-child(2), .signup-form input[type="password"]:nth-child(2), .login-form input[type="text"]:nth-child(2), .login-form input[type="password"]:nth-child(2) {
       margin-right: 0; }
-    .submit-form input[type="text"]:focus, .submit-form input[type="password"]:focus, .signup-form input[type="text"]:focus, .signup-form input[type="password"]:focus {
+    .submit-form input[type="text"]:focus, .submit-form input[type="password"]:focus, .signup-form input[type="text"]:focus, .signup-form input[type="password"]:focus, .login-form input[type="text"]:focus, .login-form input[type="password"]:focus {
       border-color: #4AC6B7;
       color: #4AC6B7; }
-  .submit-form input[type="file"]::-webkit-file-upload-button, .signup-form input[type="file"]::-webkit-file-upload-button {
+  .submit-form input[type="file"]::-webkit-file-upload-button, .signup-form input[type="file"]::-webkit-file-upload-button, .login-form input[type="file"]::-webkit-file-upload-button {
     background-color: #FFF;
     border: none;
     padding: 8px 15px;
@@ -252,7 +262,7 @@ header {
     color: #818D97;
     border-radius: 3px;
     margin-right: 8px; }
-  .submit-form *[type="submit"], .signup-form *[type="submit"] {
+  .submit-form *[type="submit"], .signup-form *[type="submit"], .login-form *[type="submit"] {
     background-color: #4AC6B7;
     border: none;
     padding: 8px 15px;

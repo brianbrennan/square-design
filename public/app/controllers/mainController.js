@@ -2,6 +2,10 @@ angular.module('mainCtrl', [])
 
 	.controller('mainController', function($rootScope, $location, Auth){
 
+		sizing();
+
+		s('input').css('margin-right', 0);
+
 		var vm = this;
 
 		vm.loggedIn = Auth.isLoggedIn();
@@ -20,7 +24,7 @@ angular.module('mainCtrl', [])
 
 			Auth.login(vm.loginData.username, vm.loginData.password)
 				.success(function(data){
-					$location.path('/profile');
+					$location.path('/');
 				});
 		};
 
