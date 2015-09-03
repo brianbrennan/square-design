@@ -12,6 +12,8 @@ route.config(function($routeProvider, $locationProvider){
 
 	.when('/submit', {
 		templateUrl: 'app/views/pages/submit.html',
+		controller: 'submitController',
+		controllerAs: 'submit'
 	})
 
 	.when('/login', {
@@ -24,7 +26,7 @@ route.config(function($routeProvider, $locationProvider){
 		templateUrl: 'app/views/pages/signup.html',
 		controller: 'userCreateController',
 		controllerAs: 'signUp'
-	});
+	})
 
 	$locationProvider.html5Mode(true);
 });	

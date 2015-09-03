@@ -111,6 +111,41 @@ header{
 	@include container(1140px);
 }
 
+.home{
+	.hero{
+		height:500px;
+
+		h1, h2{
+			font-size:4em;
+			text-align:center;
+			font-family:$headline;
+			letter-spacing:0.6em;
+		}
+
+		h1{
+			margin-top:$xxl;
+		}
+
+		h2{
+			font-size:2em;
+			letter-spacing:0.3em;
+			margin-top:$reg;
+		}
+
+		.sign-up{
+			width:175px;
+			text-align:center;
+			background:$green;
+			padding: $sm $reg;
+			color: $white;
+			font-size:1.2em;
+			border-radius:$mic;
+			margin:auto;
+			margin-top:$reg;
+		}
+	}
+}
+
 
 .pieces{
 	

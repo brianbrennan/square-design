@@ -6,7 +6,7 @@ angular.module('homeCtrl', [])
     		sizing();
 		});
 
-		$scope.viewClass = 'animate-home';
+		$scope.viewClass = 'home';
 
 		var vm = this;
 

@@ -28,7 +28,7 @@
 			<nav>
 				<ul>
 
-					<a ng-href="/profile" ng-if="$root.loggedIn"><li>Profile</li></a>
+					<a ng-href="/likes" ng-if="$root.loggedIn"><li>Likes</li></a>
 					<a href="#" ng-if="$root.loggedIn" ng-click="main.doLogout()"><li>Log Out</li></a>
 					<a ng-href="/submit" ng-if="$root.loggedIn"><li class="cta submit-button">Submit</li></a>
 					<a ng-href="/login" ng-if="$root.loggedIn==false"><li>Log In</li></a>
