@@ -1,6 +1,6 @@
 angular.module('homeCtrl', [])
 
-	.controller('homeController', function($rootScope, $location, Auth, $scope){
+	.controller('homeController', function($rootScope, $location, Auth, $scope, Pic){
 
 		$scope.$on('$viewContentLoaded', function() {
     		sizing();
@@ -11,5 +11,11 @@ angular.module('homeCtrl', [])
 		var vm = this;
 
 		$rootScope.loggedIn = Auth.isLoggedIn();
+
+		vm.getPics = function(){
+			Pic.getAll();
+		};
+
+		console.log(vm.getPics());
 
 	});

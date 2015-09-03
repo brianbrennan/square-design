@@ -12,7 +12,7 @@ route.config(function($routeProvider, $locationProvider){
 
 	.when('/submit', {
 		templateUrl: 'app/views/pages/submit.html',
-		controller: 'submitController',
+		controller: 'submissionController',
 		controllerAs: 'submit'
 	})
 

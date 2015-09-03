@@ -2,6 +2,7 @@ var User 		= require('../model/user'),
 	Pic			= require('../model/pic'),
 	jwt			= require('jsonwebtoken'),
 	config		= require('../../config'),
+	cloudinary 	= require('cloudinary'),
 	uberSecret 	= config.secret;
 
 
@@ -208,14 +209,14 @@ module.exports = function(app, express){
 			});
 		})
 
-		.post(function(req,res){//Command for Posting Picture
+		.post(function(req, res){//Command for Posting Picture
 			var pic = new Pic();
 
 			pic.firstName = req.body.firstName;
 			pic.lastName = req.body.lastName;
 			pic.email = req.body.email;
-			pic.image = req.body.image;
 			pic.visible = false;
+			pic.image = req.body.image;
 
 			pic.save(function(err){
 				if(err){
