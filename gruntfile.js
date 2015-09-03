@@ -9,13 +9,13 @@ module.exports = function(grunt) {
 		uglify: {
 			my_target: {
 				files: {
-					'components/script.js': ['components/js/*.js']
+					'public/app/components/script.js': ['public/app/components/js/*.js']
 				} //files
 			} //my_target
 		}, //uglify
 		watch: {
 			scripts: {
-				files: ['components/js/*.js'],
+				files: ['public/app/components/js/*.js'],
 				tasks: ['uglify'],
 				options: {
 					livereload: 35729,
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 				}
 			},//scripts
 			sass: {
-				files: ['components/scss/*.scss'],
+				files: ['public/app/components/scss/*.scss'],
 				tasks: ['sass'],
 				options: {
 					livereload: 35729,
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 				}
 			},//sass
 			html: {
-				files: ['*.html'],
+				files: ['public/*.html'],
 				options: {
 					livereload: 35729,
 					spawn: false
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
 			}//html
 		},//watch
 		connect:{
-			port:8000
+			port:8080
 		},//connect
 		sass: {
 			options: {
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 				},
 				dist: { 
      		 	files: {                         // Dictionary of files
-        			'components/styles.css': 'components/scss/style.scss',       // 'destination': 'source'        			
+        			'public/app/components/styles.css': 'public/app/components/scss/style.scss',       // 'destination': 'source'        			
         		}
         	}
 		}//sass

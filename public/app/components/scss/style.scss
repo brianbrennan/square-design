@@ -1,0 +1,268 @@
+@import "../lib/bourbon/app/assets/stylesheets/bourbon";
+@import "../lib/breakpoint-sass/stylesheets/breakpoint";
+@import "../lib/susy/sass/susy";
+
+@import "reset";
+@import "variables";
+@import "animations";
+
+$susy: (
+	columns: 12,
+	gutter-position:after
+	);
+
+*::selection{
+	background-color: $green;
+	color:$white;
+}
+
+body{
+	background-color:$lighter-grey;
+	font-family:$body;
+	color:$dark;
+}
+
+a{
+	text-decoration:none;
+	color:inherit;
+}
+
+header{
+	height:$lg;
+	width:100%;
+	padding:0 $sm;
+	margin-bottom:$sm;
+	box-sizing:border-box;
+
+	.logo{
+		font-family: $headline;
+		font-size:2em;
+		letter-spacing:.3em;
+		margin-top: $reg - $tny;
+		color:$dark;
+
+		@include breakpoint(760px){
+			@include span(3);
+		}
+
+		@include breakpoint(0 759px){
+			@include span(12);
+			text-align:center;
+		}
+	}
+
+	nav{
+		font-family:$body;
+		color:$dark;
+
+		@include breakpoint(840px){
+			@include span(6);
+			@include last();
+			margin-top:$reg;
+		}
+
+		@include breakpoint(760px 839px){
+			@include span(9);
+			@include last();
+			margin-top:$reg;
+		}
+
+		@include breakpoint(0px 759px){
+			@include span(12);
+			margin-top:$sm;
+			margin-bottom:$sm;
+		}
+
+		ul{
+			float:right;
+
+			@include breakpoint(0 759px){
+				display:block;
+				width:100%;
+				text-align:center;
+			}
+		}
+
+		a{
+			li{
+				display:inline-block;
+				text-align:right;
+				margin-right:$reg;
+
+				&.cta{
+					background-color:$green;
+					padding:$tny $sm;
+					color:$white;
+					border-radius:$mic;
+					cursor:pointer;
+				}
+			}
+
+			&:last-child{
+				li{
+					margin-right:0;
+				}
+			}
+		}
+	}
+}
+
+.wrapper{
+	@include container(1140px);
+}
+
+
+.pieces{
+	
+	.piece{
+		margin-bottom:$sm;
+		box-sizing:border-box;
+		background-color:$white;
+		border-radius:$mic;
+		box-shadow: 0px 2px $mic $light-grey;
+		padding:$tny;
+		position:relative;
+
+		@include breakpoint(960px){
+			@include span(4);
+
+			&:nth-child(3n){
+				@include last();
+			}
+		}
+
+		@include breakpoint(760px 959px){
+			@include span(6);
+
+			&:nth-child(2n){
+				@include last();
+			}
+		}
+
+		@include breakpoint(0px 759px){
+			@include span(12);
+
+			border-bottom:1px solid $lighter-grey;
+		}
+
+		.image{
+			background-color:$lighter-grey;
+			border-radius:$mic;
+			width:100%;
+		}
+
+		span{
+			text-align:center;
+			margin-top:$sm;
+			display:block;
+			font-size:12px;
+		}
+
+		.likes{
+			float:left;
+			display:inline-block;
+			position:absolute;
+			left:$tny;
+			font-style:italic;
+		}
+
+		.like{
+			width:$reg;
+			height:$reg;
+			float:right;
+			display:inline-block;
+			margin-top:-($sm + $mic);
+			@include transition(0.2s);
+
+			&:hover{
+				svg{
+					fill:$light-grey;
+				}
+			}
+
+			&.active{
+				svg{
+					fill: $green;
+				}
+			}
+
+			svg{
+				@include transition(.2s);
+				fill:$lighter-grey
+			}
+		}
+	}
+}
+
+.submit-form, .signup-form{
+	width:420px;
+	margin:auto;
+	margin-top:$xxl;
+	text-align:center;
+
+	*:focus{
+		outline:none;
+	}
+
+	h1{
+		text-align:center;
+		font-family:$headline;
+		font-size:2em;
+		letter-spacing:.3em;
+		margin-bottom:$sm;
+	}
+
+	input[type="email"]{
+		width: 402px;
+		padding:$tny;
+		margin-bottom:$sm;
+		border: 1px solid $light-grey;
+		border-radius:$mic;
+		color:$dark;
+
+		&:focus{
+			border-color:$green;
+			color:$green;
+		}
+	}
+
+	input[type="text"], input[type="password"]{
+		width:182px;
+		padding:$tny;
+		margin-bottom:$sm;
+		margin-right:$sm;
+		border: 1px solid $light-grey;
+		border-radius:$mic;
+		color:$dark;
+
+		&:nth-child(2){
+			margin-right:0;
+		}
+
+		&:focus{
+			border-color:$green;
+			color:$green;
+		}
+	}
+
+	input[type="file"]::-webkit-file-upload-button{
+		background-color: $white;
+		border:none;
+		padding:$tny $sm;
+		border:1px solid $light-grey;
+		color:$dark;
+		border-radius:$mic;
+		margin-right:$tny;
+	}
+
+	*[type="submit"]{
+		background-color:$green;
+		border:none;
+		padding:$tny $sm;
+		margin-top:$sm;
+		color:$white;
+		border-radius:$mic;
+		font-size:1em;
+		cursor:pointer;
+	}
+}

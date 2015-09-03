@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SqeDesign</title>
+	<link rel="stylesheet" href="app/components/styles.css">
+	<base href="/">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.js"></script>
+	<script src="app.js"></script>
+	<script src="app.routes.js"></script>
+	<script src="app/services/authService.js"></script>
+	<script src="app/services/userService.js"></script>
+	<script src="app/controllers/mainController.js"></script>
+	<script src="app/controllers/userController.js"></script>
+	<script src="app/controllers/userCreateController.js"></script>
+</head>
+<body ng-app="app">
+	
+	<header>
+		<div class="wrapper">
+			<div class="logo">
+				<a ng-href="/">Sitespire</a>
+			</div>
+
+			<nav>
+				<ul>
+					<a ng-href="/signup"><li>Sign Up</li></a>
+					<a ng-href="/submit"><li class="cta submit-button">Submit</li></a>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div ng-view></div>
+
+	<script src="app/components/script.js"></script>
+	<script src="//localhost:35729/livereload.js"></script>
+
+</body>
+</html>
