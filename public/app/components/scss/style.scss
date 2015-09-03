@@ -194,7 +194,7 @@ header{
 	}
 }
 
-.submit-form, .signup-form{
+.submit-form, .signup-form, .login-form{
 	width:420px;
 	margin:auto;
 	margin-top:$xxl;
@@ -202,6 +202,22 @@ header{
 
 	*:focus{
 		outline:none;
+
+		&::-webkit-input-placeholder {
+			color: $green;
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			color: $green;  
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+			color: $green;  
+		}
+
+		&:-ms-input-placeholder {  
+			color: $green;  
+		}
 	}
 
 	h1{
