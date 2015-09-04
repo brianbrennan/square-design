@@ -1,10 +1,6 @@
-angular.module('homeCtrl', [])
+angular.module('homeCtrl', ['picService'])
 
-	.controller('homeController', function($rootScope, $location, Auth, $scope, Pic){
-
-		$scope.$on('$viewContentLoaded', function() {
-    		sizing();
-		});
+	.controller('homeController', function($rootScope, $location, Auth, $scope, Pic, $http){
 
 		$scope.viewClass = 'home';
 
@@ -12,10 +8,10 @@ angular.module('homeCtrl', [])
 
 		vm.loggedIn = Auth.isLoggedIn();
 
-		vm.getPics = function(){
-			Pic.getAll();
-		};
+		Pic.getAll().then(function(res){
+			vm.pics = res.data;
+		});
 
-		console.log(vm.getPics());
+		//set image to background
 
 	});

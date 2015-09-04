@@ -1,5 +1,5 @@
 
 
-window.onresize = function(event) {
-	sizing();
-};
+// window.onresize = function(event) {
+// 	sizing();
+// };

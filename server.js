@@ -11,7 +11,8 @@ var express 			= require('express'),
 	config 				= require('./config'),
 	cloudinary			= require('cloudinary'),
 	nev					= require('email-verification'),
-	apiRoutes			= require('./app/routes/api')(app, express);
+	userApiRoutes		= require('./app/routes/user-api')(app, express),
+	picApiRoutes		= require('./app/routes/pic-api')(app, express);
 
 
 //CONFIGURATION OF APPLICATION
@@ -83,21 +84,22 @@ app.post('/registerUser', function(req, res) {
 	});
 
 	nev.createTempUser(newUser, function(newTempUser) {
-    // a new user 
-    if (newTempUser) {
-        nev.registerTempUser(newTempUser);
-        res.json({message: "success"});
+    	// a new user 
+    	if (newTempUser) {
+        	nev.registerTempUser(newTempUser);
+        	res.json({message: "success"});
  
-    // user already exists in our temporary collection 
-    } else {
+    	// user already exists in our temporary collection 
+    	} else {
          res.json({message: "failure"});
-    }
-});
+    	}
+	});
 });
 
 //--------Set Up API Routes
 
-app.use('/api',apiRoutes);
+app.use('/api/users', userApiRoutes);
+app.use('/api/pics', picApiRoutes);
 app.use(express.static(__dirname + '/public'));
 
 

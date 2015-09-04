@@ -2,19 +2,31 @@ angular.module('picService', [])
 
 	.factory('Pic', function($http){
 
-		var factory = {};
+		// factory.getAll = function(){
+		// 	$http.get('/api/pics').then(function(res){
+		// 		factory.pics = res.data;
+		// 		console.log(res.data);
+		// 	}, function(err){
+		// 		console.log(err);
+		// 	});
+		// };
 
-		factory.getAll = function(){
-			return $http.get('/api/pics');
+		// factory.postPic = function(data){
+		// 	return $http.post('/api/pics', data);
+		// }
+
+		// factory.get = function(id){
+		// 	return $http.get('/api/pics/' + id);
+		// };
+
+		return {
+			getAll: function(){
+				
+				var promise = $http.get('/api/pics').success(function(data){
+					return data;
+				});
+
+				return promise;
+			}
 		};
-
-		factory.postPic = function(data){
-			return $http.post('/api/pics', data);
-		}
-
-		factory.get = function(id){
-			return $http.get('/api/pics/' + id);
-		};
-
-		return factory;
 	});
