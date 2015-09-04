@@ -1,23 +1,15 @@
 <div class="wrapper">
-	
-	<div class="hero" ng-if="$root.loggedIn==false">
-		
-		<h1>Free Photos</h1>
-		<h2>For Any Use</h2>
-		<a ng-href="/signup"><div class="sign-up">Sign Up Now</div></a>
 
-	</div>
-
-		<div class="pieces" ng-repeat="pic in home.pics">
+		<div class="pieces" ng-repeat="pic in likes.likes">
 
 			<div class="piece">
 				<a href="{{pic.image}}"><div class="image" style="background-image:url('{{pic.image}}')"></div></a>
 				<span class="likes">{{pic.likes}} Likes</span>
 				<span>by {{pic.author}}</span>
 
-				<span class="like" ng-click="home.addLike(home.user, pic)">
+				<span class="like" ng-click="likes.addLike(likes.user, pic)">
 					<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-					width="30px" height="30px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve" class="{{home.isLiked(home.user, pic)}}">
+					width="30px" height="30px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
 					<g>
 						<g>
 							<path d="M14.708,15.847C14.252,14.864,14,13.742,14,12.5s0.252-2.489,0.708-3.659c0.455-1.171,1.114-2.266,1.929-3.205

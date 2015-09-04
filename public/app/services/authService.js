@@ -26,10 +26,8 @@ angular.module('authService', [])
 		};
 
 		factory.getUser = function(){
-			if(AuthToken.getToken()){
-				console.log($http.get('/api/users/me', {cache: true}));
+			if(AuthToken.getToken())
 				return $http.get('/api/users/me', {cache: true});
-			}
 			else
 				return $q.reject({message: 'User has no token'});
 		};

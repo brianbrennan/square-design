@@ -1,6 +1,6 @@
 angular.module('homeCtrl', ['picService'])
 
-	.controller('homeController', function($rootScope, $location, Auth, $scope, Pic, $http){
+	.controller('homeController', function($rootScope, $location, Auth, $scope, Pic, $http, User){
 
 		$scope.viewClass = 'home';
 
@@ -8,22 +8,28 @@ angular.module('homeCtrl', ['picService'])
 
 		vm.loggedIn = Auth.isLoggedIn();
 
-		if(vm.loggedIn)
-			vm.user = Auth.getUser();
+		if(vm.loggedIn){
+			Auth.getUser().then(function(res){
+				vm.user = res.data;
+			});		
+		}
 
 		Pic.getAll().then(function(res){
 			vm.pics = res.data;
 		});
 
-		vm.addLike = function(pic, id){
+		vm.addLike = function(user, pic){
 			if(vm.loggedIn){
-				Pic.addLike(id);
+				Pic.addLike(pic._id);
+				User.addLike(user, pic);
 				pic.likes++;
 			}
 			else
 				$location.path('/login');
-		}
+		};
 
-		//set image to background
+		vm.isLiked = function(user, pic){
+			return "liked";
+		};
 
 	});

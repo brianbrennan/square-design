@@ -216,17 +216,21 @@ header{
 				svg{
 					fill:$light-grey;
 				}
-			}
 
-			&.active{
-				svg{
-					fill: $green;
+				.liked{
+					@include transition(.2s);
+					fill:$green;
 				}
 			}
 
 			svg{
 				@include transition(.2s);
-				fill:$lighter-grey
+				fill:$lighter-grey;
+			}
+
+			.liked{
+				@include transition(.2s);
+				fill:$green;
 			}
 		}
 	}

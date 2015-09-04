@@ -80,20 +80,15 @@ app.post('/registerUser', function(req, res) {
 		email: req.body.email,
 		password: req.body.password,
 		name: req.body.name,
-		username: req.body.username
+		username: req.body.username,
+        likes: []
 	});
 
-	nev.createTempUser(newUser, function(newTempUser) {
-    	// a new user 
-    	if (newTempUser) {
-        	nev.registerTempUser(newTempUser);
-        	res.json({message: "success"});
- 
-    	// user already exists in our temporary collection 
-    	} else {
-         res.json({message: "failure"});
-    	}
-	});
+    newUser.save(function(err){
+        if(err)
+            res.send(err);
+        res.json({message: "User Created!"});
+    });
 });
 
 //--------Set Up API Routes

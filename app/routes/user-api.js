@@ -1,4 +1,5 @@
 var User 		= require('../model/user'),
+	Pic			= require('../model/pic'),
 	jwt			= require('jsonwebtoken'),
 	config		= require('../../config'),
 	uberSecret 	= config.secret;
@@ -99,6 +100,7 @@ module.exports = function(app, express){
 			user.name = req.body.name;
 			user.username = req.body.username;
 			user.password = req.body.password;
+			user.likes = [];
 
 			user.save(function(err){
 				if(err){
@@ -187,6 +189,24 @@ module.exports = function(app, express){
 		// 		}
 		// 	});
 		// });
+
+	userRouter.route('/addLike/:username/:pic_id')
+		.put(function(req, res){
+			User.findOne({
+				username: req.params.username
+			}).exec(function(err, user){
+				user.likes.push(req.params.pic_id);
+
+				user.save(function(err){
+					if(err)
+						res.send(err);
+
+					res.json({
+						message: "User Updated!"
+					});
+				});
+			});
+		});
 
 	return userRouter;
 }

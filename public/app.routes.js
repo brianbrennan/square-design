@@ -28,5 +28,11 @@ route.config(function($routeProvider, $locationProvider){
 		controllerAs: 'signUp'
 	})
 
+	.when('/likes', {
+		templateUrl: 'app/views/pages/likes.html',
+		controller: 'homeController',
+		controllerAs: 'likes'
+	});
+
 	$locationProvider.html5Mode(true);
 });	

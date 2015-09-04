@@ -24,5 +24,12 @@ angular.module('userService', [])
 			return $http.delete('/api/users' + id);
 		};
 
+		factory.addLike = function(user, pic){
+			console.log(pic);
+
+			console.log()
+			return $http.put('/api/users/addLike/' + user.username + '/' + pic._id);
+		};
+
 		return factory;
 	});

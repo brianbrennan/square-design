@@ -2,7 +2,8 @@
 <div class="signup-form">
 	<h1>Sign Up</h1>
 	<form ng-submit="signUp.doSignUp()">
-		<input type="text" placeholder="name" ng-model="signUp.signupData.name"><br>
+		<input type="text" placeholder="name" ng-model="signUp.signupData.name" autofocus><br>
+		<input type="text" placeholder="email" ng-model="signUp.signupData.email" ng-required><br>
 		<input type="text" placeholder="username" ng-model="signUp.signupData.username" ng-required><br>
 		<input type="password" placeholder="password" ng-model="signUp.signupData.password" ng-required><br>
 

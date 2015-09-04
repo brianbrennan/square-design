@@ -227,13 +227,21 @@ header {
     cursor: pointer; }
     .pieces .piece .like:hover svg {
       fill: #ccc; }
-    .pieces .piece .like.active svg {
+    .pieces .piece .like:hover .liked {
+      -webkit-transition: .2s;
+      -moz-transition: .2s;
+      transition: .2s;
       fill: #4AC6B7; }
     .pieces .piece .like svg {
       -webkit-transition: .2s;
       -moz-transition: .2s;
       transition: .2s;
       fill: #efefef; }
+    .pieces .piece .like .liked {
+      -webkit-transition: .2s;
+      -moz-transition: .2s;
+      transition: .2s;
+      fill: #4AC6B7; }
 
 .submit-form, .signup-form, .login-form {
   width: 420px;
