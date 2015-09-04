@@ -223,7 +223,8 @@ header {
     margin-top: -18px;
     -webkit-transition: 0.2s;
     -moz-transition: 0.2s;
-    transition: 0.2s; }
+    transition: 0.2s;
+    cursor: pointer; }
     .pieces .piece .like:hover svg {
       fill: #ccc; }
     .pieces .piece .like.active svg {

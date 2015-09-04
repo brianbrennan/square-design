@@ -8,6 +8,9 @@ angular.module('homeCtrl', ['picService'])
 
 		vm.loggedIn = Auth.isLoggedIn();
 
+		if(vm.loggedIn)
+			vm.user = Auth.getUser();
+
 		Pic.getAll().then(function(res){
 			vm.pics = res.data;
 		});

@@ -27,7 +27,8 @@ var UserSchema = new Schema({
 		index: {
 			unique: true
 		}
-	}
+	},
+	likes: Array
 });
 
 //------------Hashing Password Function

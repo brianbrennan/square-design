@@ -11,7 +11,7 @@
 		<div class="pieces" ng-repeat="pic in home.pics">
 
 			<div class="piece">
-				<div class="image" style="background-image:url('{{pic.image}}')"></div>
+				<a href="{{pic.image}}"><div class="image" style="background-image:url('{{pic.image}}')"></div></a>
 				<span class="likes">{{pic.likes}} Likes</span>
 				<span>by {{pic.author}}</span>
 				<span class="like" ng-click="home.addLike(pic, pic._id)">
