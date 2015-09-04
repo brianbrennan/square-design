@@ -212,5 +212,24 @@ module.exports = function(app, express){
 			});
 		});
 
+	userRouter.route('/removeLike/:user_id/:pic_id')
+		.put(function(req, res){
+			User.findById(req.params.user_id, function(err, user){
+
+				for(var i = 0; i > user.likes.length; i++;){
+					if (user.likes[i] === req.params.pic_id) user.likes.splice(i, req.params.pic_id.length);
+				}
+
+				user.save(function(err){
+					if(err)
+						res.send(err);
+
+					res.json({
+						message: "Added Like!"
+					});
+				});
+			});
+		});
+
 	return userRouter;
 }

@@ -25,10 +25,12 @@ angular.module('userService', [])
 		};
 
 		factory.addLike = function(user, pic){
-
-			console.log(user)
 			return $http.put('/api/users/addLike/' + user._id + '/' + pic._id);
 		};
+
+		factory.removeLike = function(user, pic){
+			return $http.put('/api/users/removeLike/' + user._id + '/' + pic._id);
+		}
 
 		return factory;
 	});

@@ -30,6 +30,9 @@ angular.module('picService', [])
 			},
 			addLike: function(id){
 				$http.put('/api/pics/addLike/' + id);
+			},
+			removeLike: function(id){
+				$http.put('/api/pics/removeLike/' + id);
 			}
 		};
 	});

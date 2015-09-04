@@ -65,5 +65,20 @@ module.exports = function(app, express){
 			});
 		});
 
+	picRouter.route('/removeLike/:pic_id')
+		.put(function(req, res){
+			Pic.findById(req.params.pic_id, function(err, pic){
+				
+				pic.likes--;
+				pic.save(function(err){
+					if(err)
+						res.send(err);
+					res.json({
+						message: "Added Like to " + pic._id
+					});
+				});
+			});
+		});
+
 	return picRouter;
 }

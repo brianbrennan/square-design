@@ -23,13 +23,13 @@ angular.module('homeCtrl', ['picService'])
 			if(vm.loggedIn){
 
 				if(vm.isLiked(user, pic) == "liked"){
-					Pic.addLike(pic._id);
-					User.addLike(user, pic);
-					pic.likes++;
-				} else {
 					Pic.removeLike(pic._id);
 					User.removeLike(user, pic);
 					pic.likes--;
+				} else {
+					Pic.addLike(pic._id);
+					User.addLike(user, pic);
+					pic.likes++;
 				}
 			}
 			else
