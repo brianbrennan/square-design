@@ -7,17 +7,18 @@ var bcrypt = require('bcrypt-nodejs');
 
 //------------Setting up the User Schema
 var PicSchema = new Schema({
-	firstName: String,
-	lastName: String,
+	author: String,
 	email: {
 		type: String,
-		required: true
+		required: true,
+		select: false
 	},
 	image: {
 		type: String,
 		required: true
 	},
-	visible: Boolean
+	visible: Boolean,
+	likes: Number
 });
 
 //export the Model

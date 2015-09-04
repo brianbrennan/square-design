@@ -10,7 +10,9 @@ var express 			= require('express'),
 	User 				= require('./app/model/user'),
 	config 				= require('./config'),
 	cloudinary			= require('cloudinary'),
-	apiRoutes			= require('./app/routes/api')(app, express);
+	nev					= require('email-verification'),
+	userApiRoutes		= require('./app/routes/user-api')(app, express),
+	picApiRoutes		= require('./app/routes/pic-api')(app, express);
 
 
 //CONFIGURATION OF APPLICATION
@@ -42,31 +44,65 @@ cloudinary.config({
   api_secret: 'u2LZWfNtORMaoyrvOBQlktk7rn8' 
 });
 
+//--------Email Verification Set Up
+
+nev.configure({
+    verificationURL: 'http://localhost:8080/email-verification/${URL}',
+    persistentUserModel: User,
+    tempUserCollection: 'tempusers',
+ 
+    transportOptions: {
+        service: 'Gmail',
+        auth: {
+            user: 'TheSiklops@gmail.com',
+            pass: '!WebDesign13'
+        }
+    },
+    verifyMailOptions: {
+        from: 'Do Not Reply <TheSiklops@gmail.com>',
+        subject: 'Please confirm account',
+        html: 'Click the following link to confirm your account:</p><p>${URL}</p>',
+        text: 'Please confirm your account by clicking the following link: ${URL}'
+    }
+});
+
+nev.generateTempUserModel(User);
+
 //---------Set up Database Connection
 
 mongoose.connect(config.database);
 
+//---------Add Register User Route
+
 app.post('/registerUser', function(req, res) {
 	var User = require('./app/model/user');
-	var user = new User();      
-	user.name = req.body.name;  
-	user.username = req.body.username;
-	user.password = req.body.password;
-
-	user.save(function(err) {
-		if (err) {
-			if (err.code == 11000) 
-				return res.json({ success: false, message: 'A user with that username already exists. '});
-			else 
-				return res.send(err);
-		}
+	var newUser = User({
+		email: req.body.email,
+		password: req.body.password,
+		name: req.body.name,
+		username: req.body.username
 	});
 
-	res.sendFile(__dirname + '/public/index.html');
+	nev.createTempUser(newUser, function(newTempUser) {
+    	// a new user 
+    	if (newTempUser) {
+        	nev.registerTempUser(newTempUser);
+        	res.json({message: "success"});
+ 
+    	// user already exists in our temporary collection 
+    	} else {
+         res.json({message: "failure"});
+    	}
+	});
 });
 
-app.use('/api',apiRoutes);
+//--------Set Up API Routes
+
+app.use('/api/users', userApiRoutes);
+app.use('/api/pics', picApiRoutes);
 app.use(express.static(__dirname + '/public'));
+
+
 
 
 //CATCHALL ROUTE FOR APPLICATION: MUST BE AFTER API ROUTES
