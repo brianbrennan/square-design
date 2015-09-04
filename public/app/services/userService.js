@@ -25,10 +25,9 @@ angular.module('userService', [])
 		};
 
 		factory.addLike = function(user, pic){
-			console.log(pic);
 
-			console.log()
-			return $http.put('/api/users/addLike/' + user.username + '/' + pic._id);
+			console.log(user)
+			return $http.put('/api/users/addLike/' + user._id + '/' + pic._id);
 		};
 
 		return factory;

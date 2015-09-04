@@ -11,6 +11,7 @@ angular.module('homeCtrl', ['picService'])
 		if(vm.loggedIn){
 			Auth.getUser().then(function(res){
 				vm.user = res.data;
+				console.log(vm.user);
 			});		
 		}
 
@@ -20,16 +21,27 @@ angular.module('homeCtrl', ['picService'])
 
 		vm.addLike = function(user, pic){
 			if(vm.loggedIn){
-				Pic.addLike(pic._id);
-				User.addLike(user, pic);
-				pic.likes++;
+
+				if(vm.isLiked(user, pic) == "liked"){
+					Pic.addLike(pic._id);
+					User.addLike(user, pic);
+					pic.likes++;
+				} else {
+					Pic.removeLike(pic._id);
+					User.removeLike(user, pic);
+					pic.likes--;
+				}
 			}
 			else
 				$location.path('/login');
 		};
 
 		vm.isLiked = function(user, pic){
-			return "liked";
+			for(var i = 0; i < user.likes.length; i++){
+				if(pic._id === user.likes[i])
+					return "liked";
+			}
+			return;
 		};
 
 	});

@@ -89,7 +89,13 @@ module.exports = function(app, express){
 
 	//get information for current user
 	userRouter.get('/me', function(req, res){
-		res.send(req.decoded);
+			User.findOne({
+				username: req.decoded.username
+			}).exec(function(err, user){
+				if(err)
+					res.send(err);
+				res.json(user);
+			});
 	});
 
 	//routes for all of users in API
@@ -190,11 +196,9 @@ module.exports = function(app, express){
 		// 	});
 		// });
 
-	userRouter.route('/addLike/:username/:pic_id')
+	userRouter.route('/addLike/:user_id/:pic_id')
 		.put(function(req, res){
-			User.findOne({
-				username: req.params.username
-			}).exec(function(err, user){
+			User.findById(req.params.user_id, function(err, user){
 				user.likes.push(req.params.pic_id);
 
 				user.save(function(err){
