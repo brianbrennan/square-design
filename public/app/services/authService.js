@@ -5,7 +5,7 @@ angular.module('authService', [])
 		var factory = {};
 
 		factory.login = function(username, password){
-			return $http.post('/api/authenticate', {
+			return $http.post('/api/users/authenticate', {
 				username: username,
 				password: password
 			})
@@ -27,7 +27,7 @@ angular.module('authService', [])
 
 		factory.getUser = function(){
 			if(AuthToken.getToken())
-				return $http.get('/api/me', {cache: true});
+				return $http.get('/api/users/me', {cache: true});
 			else
 				return $q.reject({message: 'User has not token'});
 		};

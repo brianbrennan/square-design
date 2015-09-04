@@ -12,6 +12,15 @@ angular.module('homeCtrl', ['picService'])
 			vm.pics = res.data;
 		});
 
+		vm.addLike = function(pic, id){
+			if(vm.loggedIn){
+				Pic.addLike(id);
+				pic.likes++;
+			}
+			else
+				$location.path('/login');
+		}
+
 		//set image to background
 
 	});

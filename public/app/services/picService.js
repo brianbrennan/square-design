@@ -27,6 +27,9 @@ angular.module('picService', [])
 				});
 
 				return promise;
+			},
+			addLike: function(id){
+				$http.put('/api/pics/addLike/' + id);
 			}
 		};
 	});
