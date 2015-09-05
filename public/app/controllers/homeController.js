@@ -11,7 +11,6 @@ angular.module('homeCtrl', ['picService'])
 		if(vm.loggedIn){
 			Auth.getUser().then(function(res){
 				vm.user = res.data;
-				console.log(vm.user);
 			});		
 		}
 
@@ -23,12 +22,20 @@ angular.module('homeCtrl', ['picService'])
 			if(vm.loggedIn){
 
 				if(vm.isLiked(user, pic) == "liked"){
+					console.log('unliked');
 					Pic.removeLike(pic._id);
 					User.removeLike(user, pic);
+					vm.isLiked(user, pic);
+					s('.like svg').removeClass('liked');
 					pic.likes--;
 				} else {
+					console.log('liked');
 					Pic.addLike(pic._id);
-					User.addLike(user, pic);
+					$http.put('/api/users/addLike/' + user._id + '/' + pic._id).then(function(err){
+						vm.isLiked(user, pic);
+					});
+					vm.isLiked(user, pic);
+					s('.like svg').addClass('liked');
 					pic.likes++;
 				}
 			}
@@ -38,7 +45,7 @@ angular.module('homeCtrl', ['picService'])
 
 		vm.isLiked = function(user, pic){
 			for(var i = 0; i < user.likes.length; i++){
-				if(pic._id === user.likes[i])
+				if(pic._id == user.likes[i])
 					return "liked";
 			}
 			return;

@@ -216,16 +216,17 @@ module.exports = function(app, express){
 		.put(function(req, res){
 			User.findById(req.params.user_id, function(err, user){
 
-				for(var i = 0; i > user.likes.length; i++;){
-					if (user.likes[i] === req.params.pic_id) user.likes.splice(i, req.params.pic_id.length);
-				}
+				var i = user.likes.indexOf(req.params.pic_id);
+
+				if(i > -1)
+					user.likes.splice(i, 1);
 
 				user.save(function(err){
 					if(err)
 						res.send(err);
 
 					res.json({
-						message: "Added Like!"
+						message: "Removed Like!"
 					});
 				});
 			});
