@@ -24,7 +24,7 @@ module.exports = function(app, express){
 
 	picRouter.route('/')
 		.get(function(req, res){
-			Pic.find({visible: true}, function(err, pics){
+			Pic.find({visible: false}, function(err, pics){
 				if(err)
 					res.send(err);
 
@@ -36,6 +36,7 @@ module.exports = function(app, express){
 			var pic = new Pic();
 
 			pic.email = req.body.email;
+			pic.author = req.body.author;
 			pic.visible = false;
 			pic.likes = 0;
 
@@ -44,12 +45,12 @@ module.exports = function(app, express){
 				pic.image = result;
 				pic.path = result.secure_url;
 
-				pic.thumbnail = cloudinary.url(result.secure_url,  {secure: true, width: 300, crop: 'scale' });
+				pic.thumbnail = 'https://res.cloudinary.com/bbrennan/image/upload/c_scale,w_328/'+ pic.image.public_id + '.'+ pic.image.format;
 
 				pic.save(function(err){
 					if(err)
 						return res.send(err);
-					res.sendFile('/public/index.html');
+					res.sendFile('../../public/index.html');
 				});
 			});
 		});

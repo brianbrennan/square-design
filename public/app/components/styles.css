@@ -266,14 +266,14 @@ header {
     font-size: 2em;
     letter-spacing: .3em;
     margin-bottom: 15px; }
-  .submit-form input[type="email"], .signup-form input[type="email"], .login-form input[type="email"] {
+  .submit-form input[type="email"], .submit-form #author, .signup-form input[type="email"], .signup-form #author, .login-form input[type="email"], .login-form #author {
     width: 402px;
     padding: 8px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
     color: #818D97; }
-    .submit-form input[type="email"]:focus, .signup-form input[type="email"]:focus, .login-form input[type="email"]:focus {
+    .submit-form input[type="email"]:focus, .submit-form #author:focus, .signup-form input[type="email"]:focus, .signup-form #author:focus, .login-form input[type="email"]:focus, .login-form #author:focus {
       border-color: #4AC6B7;
       color: #4AC6B7; }
   .submit-form input[type="text"], .submit-form input[type="password"], .signup-form input[type="text"], .signup-form input[type="password"], .login-form input[type="text"], .login-form input[type="password"] {
