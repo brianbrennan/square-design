@@ -1,5 +1,6 @@
 var Pic 		= 	require('../model/pic'),
 	config		= 	require('../../config'),
+	path		= 	require('path'),
 	cloudinary 	= 	require('cloudinary'),
 	multer 		= 	require('multer'),
 	upload 		= 	multer({dest: './uploads', inMemory: true}),
@@ -50,7 +51,6 @@ module.exports = function(app, express){
 				pic.save(function(err){
 					if(err)
 						return res.send(err);
-					res.sendFile('../../public/index.html');
 				});
 			});
 		});
