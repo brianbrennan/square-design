@@ -33,6 +33,10 @@ angular.module('picService', [])
 			},
 			removeLike: function(id){
 				$http.put('/api/pics/removeLike/' + id);
+			},
+			postPic: function(submission){
+				console.log(submission);
+				$http.post('/new', submission);
 			}
 		};
 	});

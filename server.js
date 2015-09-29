@@ -11,6 +11,7 @@ var express 			= require('express'),
 	config 				= require('./config'),
 	cloudinary			= require('cloudinary'),
 	nev					= require('email-verification'),
+    multer              = require('multer'),
 	userApiRoutes		= require('./app/routes/user-api')(app, express),
 	picApiRoutes		= require('./app/routes/pic-api')(app, express);
 
@@ -18,6 +19,7 @@ var express 			= require('express'),
 //CONFIGURATION OF APPLICATION
 
 //---------Body Parser
+app.use(multer({ dest: './uploads/'})),
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -36,13 +38,6 @@ Authorization');
 
 app.use(morgan('dev'));
 
-//---------Cloudinary Configuration
-
-cloudinary.config({ 
-  cloud_name: 'bbrennan', 
-  api_key: '252953896314781', 
-  api_secret: 'u2LZWfNtORMaoyrvOBQlktk7rn8' 
-});
 
 //--------Email Verification Set Up
 
@@ -96,8 +91,6 @@ app.post('/registerUser', function(req, res) {
 app.use('/api/users', userApiRoutes);
 app.use('/api/pics', picApiRoutes);
 app.use(express.static(__dirname + '/public'));
-
-
 
 
 //CATCHALL ROUTE FOR APPLICATION: MUST BE AFTER API ROUTES

@@ -1,6 +1,18 @@
-var Pic 		= require('../model/pic'),
-	config		= require('../../config'),
-	uberSecret 	= config.secret;
+var Pic 		= 	require('../model/pic'),
+	config		= 	require('../../config'),
+	cloudinary 	= 	require('cloudinary'),
+	multer 		= 	require('multer'),
+	upload 		= 	multer({dest: './uploads', inMemory: true}),
+	uberSecret 	= 	config.secret;
+
+
+//---------Cloudinary Configuration
+
+cloudinary.config({ 
+  cloud_name: 'bbrennan', 
+  api_key: config.cloudinary_api_key, 
+  api_secret: config.cloudinary_secret 
+});
 
 	//Authenticate route
 
@@ -12,7 +24,7 @@ module.exports = function(app, express){
 
 	picRouter.route('/')
 		.get(function(req, res){
-			Pic.find(function(err, pics){
+			Pic.find({visible: true}, function(err, pics){
 				if(err)
 					res.send(err);
 
@@ -20,24 +32,26 @@ module.exports = function(app, express){
 			});
 		})
 
-		.post(function(req, res){
+		.post( function(req, res){
 			var pic = new Pic();
 
-			pic.author = req.body.author;
 			pic.email = req.body.email;
-			pic.image = req.body.image;
 			pic.visible = false;
 			pic.likes = 0;
 
-			pic.save(function(err){
-				if(err)
-					return res.send(err);
+			cloudinary.uploader.upload(req.files.photo.path, function(result){
 
-				res.json({
-					message:'Pic Uploaded!'
+				pic.image = result;
+				pic.path = result.secure_url;
+
+				pic.thumbnail = cloudinary.url(result.secure_url,  {secure: true, width: 300, crop: 'scale' });
+
+				pic.save(function(err){
+					if(err)
+						return res.send(err);
+					res.sendFile('/public/index.html');
 				});
-			})
-
+			});
 		});
 
 	picRouter.route('/id/:pic_id')

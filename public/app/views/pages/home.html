@@ -11,7 +11,7 @@
 		<div class="pieces">
 
 			<div class="piece" ng-repeat="pic in home.pics">
-				<a href="{{pic.image}}"><div class="image" style="background-image:url('{{pic.image}}')"></div></a>
+				<a href="{{pic.path}}"><div class="image" style="background-image:url('{{pic.thumbnail}}')"></div></a>
 				<span class="likes">{{pic.likes}} Likes</span>
 				<span ng-if="pic.author!==undefined">by {{pic.author}}</span>
 				<span ng-if="pic.author===undefined"><br></span>

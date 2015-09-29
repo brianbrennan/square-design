@@ -10,12 +10,16 @@ var PicSchema = new Schema({
 	author: String,
 	email: {
 		type: String,
-		required: true,
-		select: false
+		select: false,
+		required: true
 	},
 	image: {
-		type: String,
-		required: true
+		type: Object,
+		required:true
+	},
+	path: String,
+	thumbnail: {
+		type: Object
 	},
 	visible: Boolean,
 	likes: Number
