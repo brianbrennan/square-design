@@ -1,9 +1,9 @@
 <div class="wrapper">
 
-		<div class="pieces" ng-repeat="pic in likes.likes">
+		<div class="pieces" ng-repeat="pic in likes.pics" ng-hide="pic.loading">
 
 			<div class="piece">
-				<a href="{{pic.image}}"><div class="image" style="background-image:url('{{pic.image}}')"></div></a>
+				<a href="{{pic.path}}"><div class="image" style="background-image:url('{{pic.thumbnail}}')"></div></a>
 				<span class="likes">{{pic.likes}} Likes</span>
 				<span>by {{pic.author}}</span>
 

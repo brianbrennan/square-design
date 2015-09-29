@@ -3,8 +3,10 @@
 			<h1>Submit a Photo</h1>
 			<form method="post" action="/api/pics" enctype="multipart/form-data">
 				<input type="text" name="author" id="author" placeholder="Your Name" ng-model="submit.submission.author">
-				<input type="email" name="email" placeholder="Email" ng-model="submit.submission.email" ng-required>
-				<input type="file" name="photo" ng-required> <br>
+				<input type="email" name="email" placeholder="Email" ng-model="submit.submission.email" required>
+				<input type="file" name="photo" required> <br>
+				<div class="check"><input type="checkbox" name="terms" required> <span class="terms-label">I agree with the <a href="/terms">terms and conditions</a></span></div>
+				<div class="check"><input type="checkbox" name="rights" required> <span class="terms-label">I confirm that I own the rights to the submitted photo</span></div>
 				<button type="submit">Submit</button>
 			</form>
 		</div>

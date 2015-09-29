@@ -297,6 +297,18 @@ header {
     color: #818D97;
     border-radius: 3px;
     margin-right: 8px; }
+  .submit-form .check, .signup-form .check, .login-form .check {
+    padding: 15px; }
+  .submit-form input[type="checkbox"], .signup-form input[type="checkbox"], .login-form input[type="checkbox"] {
+    display: inline-block;
+    float: left;
+    margin: 0 15px 0 0; }
+  .submit-form .terms-label, .signup-form .terms-label, .login-form .terms-label {
+    font-size: 14px;
+    float: left; }
+    .submit-form .terms-label a, .signup-form .terms-label a, .login-form .terms-label a {
+      color: #4AC6B7;
+      text-decoration: underline; }
   .submit-form *[type="submit"], .signup-form *[type="submit"], .login-form *[type="submit"] {
     background-color: #4AC6B7;
     border: none;
@@ -306,3 +318,9 @@ header {
     border-radius: 3px;
     font-size: 1em;
     cursor: pointer; }
+  .submit-form .already, .signup-form .already, .login-form .already {
+    margin-top: 30px;
+    font-size: 14px; }
+    .submit-form .already a, .signup-form .already a, .login-form .already a {
+      color: #4AC6B7;
+      text-decoration: underline; }

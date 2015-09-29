@@ -313,6 +313,26 @@ header{
 		margin-right:$tny;
 	}
 
+	.check{
+		padding:$sm;
+	}
+
+	input[type="checkbox"]{
+		display:inline-block;
+		float:left;
+		margin:0 $sm 0 0;
+	}
+
+	.terms-label{
+		font-size: $smFontSize;
+		float:left;
+
+		a{
+			color:$green;
+			text-decoration:underline;
+		}
+	}
+
 	*[type="submit"]{
 		background-color:$green;
 		border:none;
@@ -322,5 +342,14 @@ header{
 		border-radius:$mic;
 		font-size:1em;
 		cursor:pointer;
+	}
+
+	.already{
+		margin-top:$reg;
+		font-size: $smFontSize;
+		a{
+			color:$green;
+			text-decoration:underline;
+		}
 	}
 }

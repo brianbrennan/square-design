@@ -28,6 +28,14 @@ angular.module('picService', [])
 
 				return promise;
 			},
+			getPic: function(id){
+				
+				var promise = $http.get('/api/pics/id/' + id).success(function(data){
+					return data;
+				});
+
+				return promise;
+			},
 			addLike: function(id){
 				$http.put('/api/pics/addLike/' + id);
 			},
