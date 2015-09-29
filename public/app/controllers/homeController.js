@@ -15,40 +15,65 @@ angular.module('homeCtrl', ['picService'])
 		}
 
 		Pic.getAll().then(function(res){
-			vm.pics = res.data;
+			vm.pics = res.data;		
 		});
 
-		vm.addLike = function(user, pic){
+		vm.like = function(user, pic){
 			if(vm.loggedIn){
 
-				if(vm.isLiked(user, pic) == "liked"){
-					console.log('unliked');
-					Pic.removeLike(pic._id);
-					User.removeLike(user, pic);
-					vm.isLiked(user, pic);
-					s('.like svg').removeClass('liked');
-					pic.likes--;
-				} else {
+				if(!vm.isLiked(user, pic)){
 					console.log('liked');
-					Pic.addLike(pic._id);
+					Pic.addLike(pic._id);//adds like via api;
+
 					$http.put('/api/users/addLike/' + user._id + '/' + pic._id).then(function(err){
-						vm.isLiked(user, pic);
+						if(err)
+							console.log(err);
+						s('.pic-' + pic._id).class('pic-' + pic._id + ' liked');
+
+						vm.user.likes.push(pic._id);
 					});
-					vm.isLiked(user, pic);
-					s('.like svg').addClass('liked');
+
 					pic.likes++;
+				} else {
+					console.log('unliked');
+					Pic.removeLike(pic._id);//adds like via api;
+
+					$http.put('/api/users/removeLike/' + user._id + '/' + pic._id).then(function(err){
+						if(err)
+							console.log(err);
+						s('.pic-' + pic._id).class('pic-' + pic._id);
+
+						var i = vm.user.likes.indexOf(pic._id);
+
+						if(i > -1)
+							vm.user.likes.splice(i, 1);
+
+						console.log(vm.user);
+					});
+
+					pic.likes--;
 				}
+				
 			}
 			else
 				$location.path('/login');
 		};
 
-		vm.isLiked = function(user, pic){
-			for(var i = 0; i < user.likes.length; i++){
-				if(pic._id == user.likes[i])
-					return "liked";
-			}
+		vm.likeClass = function(user, pic){
+			if(vm.isLiked(user, pic))
+				return 'liked';
 			return;
+		};
+
+		vm.isLiked = function(user, pic){
+
+			for(var i = 0; i < user.likes.length; i++){
+				if(user.likes[i] == pic._id){
+					return true;
+				}
+			}
+
+			return false;
 		};
 
 	});

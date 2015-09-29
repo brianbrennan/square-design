@@ -51,6 +51,7 @@ module.exports = function(app, express){
 				pic.save(function(err){
 					if(err)
 						return res.send(err);
+					res.json({message: 'Pic Uploaded!'});
 				});
 			});
 		});

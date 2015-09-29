@@ -16,9 +16,9 @@
 				<span ng-if="pic.author!==undefined">by {{pic.author}}</span>
 				<span ng-if="pic.author===undefined"><br></span>
 
-				<span class="like" ng-click="home.addLike(home.user, pic)">
+				<span class="like" ng-click="home.like(home.user, pic)">
 					<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-					width="30px" height="30px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve" class="{{home.isLiked(home.user, pic)}}">
+					width="30px" height="30px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve" class="pic-{{pic._id}} {{home.likeClass(home.user, pic)}}">
 					<g>
 						<g>
 							<path d="M14.708,15.847C14.252,14.864,14,13.742,14,12.5s0.252-2.489,0.708-3.659c0.455-1.171,1.114-2.266,1.929-3.205
